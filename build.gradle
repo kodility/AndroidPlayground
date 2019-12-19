@@ -4,29 +4,28 @@ ext {
     minSdk = project.hasProperty('minSdk') ? minSdk.toInteger() : 21
     compileSdk = 29
     targetSdk = 29
+    buildToolsVersion = "29.0.2"
 }
 
-buildscript { 
-    ext.kotlin_version = '1.3.61'
-
+buildscript {
     repositories {
         google()
         jcenter()
 
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" }
+    }
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
-
+        maven { url 'https://jitpack.io' }
+        maven { url "https://oss.jfrog.org/libs-snapshot" } // Remove after RxAndroid 3 is released
     }
 }
 

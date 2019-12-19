@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion compileSdk
     buildToolsVersion buildToolsVersion
-
 
     defaultConfig {
         minSdkVersion minSdk
@@ -33,9 +33,30 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     api "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
-    api 'androidx.appcompat:appcompat:1.1.0'
-    api 'androidx.core:core:1.1.0'
-    api 'androidx.core:core-ktx:1.1.0'
+    api "androidx.appcompat:appcompat:$appcompatVersion"
+    api "androidx.core:core:$appcompatVersion"
+    api "androidx.core:core-ktx:$appcompatVersion"
+
+    // ViewModel and LiveData
+    api "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    api "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    // optional - ReactiveStreams support for LiveData
+    api "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"
+
+    // Dagger
+    api "com.google.dagger:dagger:$daggerVersion"
+    api "com.google.dagger:dagger-android:$daggerVersion"
+    api "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+    // Rx
+    api "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
+    //api "com.github.ReactiveX:RxKotlin:$rxKotlinVersion"
+    api "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
+    //api "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
 
     testImplementation 'junit:junit:4.12'
+    // optional - Test helpers for LiveData
+    testImplementation "androidx.arch.core:core-testing:$lifecycleVersion"
 }
