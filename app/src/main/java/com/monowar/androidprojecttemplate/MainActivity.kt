@@ -3,15 +3,26 @@ package com.monowar.androidprojecttemplate
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
+import com.monowar.androidprojecttemplate.databinding.ActivityMainBinding
+import com.monowar.base.activity.MVVMDataBindingActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : MVVMDataBindingActivity<MainViewModel, ActivityMainBinding>() {
+
+    override val layoutResourceId: Int
+        get() = R.layout.activity_main
+
+    override fun initViewModel(): MainViewModel = ViewModelProviders.of(getActivity(), vmFactory.get()).get(MainViewModel::class.java)
+
+    override fun setViewModelInDataBinding(binding: ActivityMainBinding, viewModel: MainViewModel) {
+        binding.viewModel = viewModel
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->

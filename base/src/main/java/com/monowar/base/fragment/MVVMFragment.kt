@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
 
 abstract class MVVMFragment : BaseFragment() {
+
     @Inject
-    lateinit var vmFactory: ViewModelProvider.Factory
+    lateinit var vmFactory: dagger.Lazy<ViewModelProvider.Factory>
 }

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
  *
  * @param message the message text.
  */
-inline fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT): Toast {
+fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT): Toast {
     return Toast.makeText(this, message, duration)
         .apply {
             show()
@@ -17,4 +17,4 @@ inline fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHO
 }
 
 
-inline fun Fragment.toast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) = requireActivity().toast(text, duration)
+fun Fragment.toast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) = requireActivity().toast(text, duration)

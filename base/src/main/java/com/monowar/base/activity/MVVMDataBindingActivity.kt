@@ -6,11 +6,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 
-abstract class MVVMDataBindingActivity<DataBinding : ViewDataBinding> : MVVMActivity() {
+abstract class MVVMDataBindingActivity<VM : ViewModel, Binding : ViewDataBinding> : MVVMActivity() {
 
-    lateinit var viewModel: ViewModel
+    lateinit var viewModel: VM
 
-    lateinit var dataBinding: DataBinding
+    lateinit var dataBinding: Binding
 
     /**
      * @return layout resource id
@@ -22,12 +22,12 @@ abstract class MVVMDataBindingActivity<DataBinding : ViewDataBinding> : MVVMActi
      * Override to create viewModel
      * @return view model instance
      */
-    abstract fun initViewModel(): ViewModel
+    abstract fun initViewModel(): VM
 
     /**
      * Override to set viewModel to dataBinding
      */
-    abstract fun setViewModelInDataBinding(binding: DataBinding, viewModel: ViewModel)
+    abstract fun setViewModelInDataBinding(binding: Binding, viewModel: VM)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
