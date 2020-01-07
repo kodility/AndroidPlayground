@@ -11,6 +11,7 @@ import android.widget.EditText
 import androidx.annotation.AnimRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.monowar.base.fragment.BaseFragmentCommunicator
 import com.monowar.base.utils.ConnectionLiveData
 import com.monowar.base.utils.toast
 import dagger.android.AndroidInjection

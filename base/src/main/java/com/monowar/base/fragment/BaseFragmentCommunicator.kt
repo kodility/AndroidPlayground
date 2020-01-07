@@ -1,4 +1,4 @@
-package com.monowar.base.activity
+package com.monowar.base.fragment
 
 import android.content.Intent
 import android.view.View
