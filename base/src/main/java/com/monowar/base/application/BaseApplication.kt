@@ -6,10 +6,11 @@ import com.monowar.base.lifecycleobserver.ApplicationObserver
 
 abstract class BaseApplication : Application() {
 
+    val processLifecycle by lazy { ProcessLifecycleOwner.get().lifecycle }
+
     override fun onCreate() {
         super.onCreate()
 
-        val processLifecycle = ProcessLifecycleOwner.get().lifecycle
         processLifecycle.addObserver(ApplicationObserver())
     }
 }
