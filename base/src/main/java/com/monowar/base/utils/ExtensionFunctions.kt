@@ -17,4 +17,4 @@ fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT): To
 }
 
 
-fun Fragment.toast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) = requireActivity().toast(text, duration)
+fun Fragment.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) = requireActivity().toast(message, duration)

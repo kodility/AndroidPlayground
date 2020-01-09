@@ -2,7 +2,7 @@ package com.monowar.androidprojecttemplate.injection.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.monowar.androidprojecttemplate.MainViewModel
+import com.monowar.androidprojecttemplate.ui.MainViewModel
 import com.monowar.base.injection.ViewModelKey
 import com.monowar.base.viewmodel.ViewModelFactory
 import dagger.Binds

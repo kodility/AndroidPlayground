@@ -28,9 +28,9 @@ abstract class MVVMDataBindingFragment<VM : ViewModel, Binding : ViewDataBinding
     abstract fun initViewModel(): VM
 
     /**
-     * Override to set viewModel to dataBinding
+     * Override to set initial values in viewModel and dataBinding
      */
-    abstract fun setViewModelInDataBinding(binding: Binding, viewModel: VM)
+    abstract fun setInitialValues()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ abstract class MVVMDataBindingFragment<VM : ViewModel, Binding : ViewDataBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBinding = DataBindingUtil.inflate(inflater, layoutResourceId, container, false)
         dataBinding.lifecycleOwner = viewLifecycleOwner
-        setViewModelInDataBinding(dataBinding, viewModel)
+        setInitialValues()
         return dataBinding.root
     }
 }

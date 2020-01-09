@@ -25,15 +25,15 @@ abstract class MVVMDataBindingActivity<VM : ViewModel, Binding : ViewDataBinding
     abstract fun initViewModel(): VM
 
     /**
-     * Override to set viewModel to dataBinding
+     * Override to set initial values in viewModel and dataBinding
      */
-    abstract fun setViewModelInDataBinding(binding: Binding, viewModel: VM)
+    abstract fun setInitialValues()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBinding = DataBindingUtil.setContentView(getActivity(), layoutResourceId)
         dataBinding.lifecycleOwner = getActivity()
         viewModel = initViewModel()
-        setViewModelInDataBinding(dataBinding, viewModel)
+        setInitialValues()
     }
 }

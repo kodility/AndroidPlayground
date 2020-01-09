@@ -1,4 +1,4 @@
-package com.monowar.androidprojecttemplate
+package com.monowar.androidprojecttemplate.ui
 
 import com.monowar.base.viewmodel.BaseViewModel
 import javax.inject.Inject
