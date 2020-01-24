@@ -22,7 +22,7 @@ class ViewModelFactory @Inject constructor(
             }
         }
         if (creator == null) {
-            throw IllegalArgumentException("unknown model call $modelClass")
+            throw IllegalArgumentException("Unknown model call $modelClass")
         }
 
         try {
