@@ -3,7 +3,6 @@ package com.monowar.androidprojecttemplate.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import com.monowar.androidprojecttemplate.R
 import com.monowar.androidprojecttemplate.databinding.ActivityMainBinding
@@ -12,10 +11,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : MVVMDataBindingActivity<MainViewModel, ActivityMainBinding>() {
 
-    override val layoutResourceId: Int
-        get() = R.layout.activity_main
+    override val vmClass = MainViewModel::class.java
 
-    override fun initViewModel(): MainViewModel = ViewModelProviders.of(getActivity(), vmFactory.get()).get(MainViewModel::class.java)
+    override val layoutResourceId = R.layout.activity_main
 
     override fun setInitialValues() {
         dataBinding.viewModel = viewModel

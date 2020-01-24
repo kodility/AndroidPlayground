@@ -6,23 +6,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 
-abstract class MVVMDataBindingActivity<VM : ViewModel, Binding : ViewDataBinding> : MVVMActivity() {
+abstract class MVVMDataBindingActivity<VM : ViewModel, DataBinding : ViewDataBinding> : MVVMActivity<VM>() {
 
-    lateinit var viewModel: VM
-
-    lateinit var dataBinding: Binding
+    lateinit var dataBinding: DataBinding
 
     /**
      * @return layout resource id
      */
     @get:LayoutRes
     abstract val layoutResourceId: Int
-
-    /**
-     * Override to create viewModel
-     * @return view model instance
-     */
-    abstract fun initViewModel(): VM
 
     /**
      * Override to set initial values in viewModel and dataBinding
@@ -33,7 +25,6 @@ abstract class MVVMDataBindingActivity<VM : ViewModel, Binding : ViewDataBinding
         super.onCreate(savedInstanceState)
         dataBinding = DataBindingUtil.setContentView(getActivity(), layoutResourceId)
         dataBinding.lifecycleOwner = getActivity()
-        viewModel = initViewModel()
         setInitialValues()
     }
 }

@@ -9,11 +9,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 
-abstract class MVVMDataBindingFragment<VM : ViewModel, Binding : ViewDataBinding>: MVVMFragment() {
+abstract class MVVMDataBindingFragment<VM : ViewModel, DataBinding : ViewDataBinding> : MVVMFragment<VM>() {
 
-    lateinit var viewModel: VM
-
-    lateinit var dataBinding: Binding
+    lateinit var dataBinding: DataBinding
 
     /**
      * @return layout resource id
@@ -22,20 +20,9 @@ abstract class MVVMDataBindingFragment<VM : ViewModel, Binding : ViewDataBinding
     abstract val layoutResourceId: Int
 
     /**
-     * Override to create viewModel
-     * @return view model instance
-     */
-    abstract fun initViewModel(): VM
-
-    /**
      * Override to set initial values in viewModel and dataBinding
      */
     abstract fun setInitialValues()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = initViewModel()
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBinding = DataBindingUtil.inflate(inflater, layoutResourceId, container, false)
