@@ -2,7 +2,6 @@ package com.monowar.base.activity
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import javax.inject.Inject
 
 abstract class MVVMActivity<VM : ViewModel> : BaseActivity() {
@@ -15,5 +14,5 @@ abstract class MVVMActivity<VM : ViewModel> : BaseActivity() {
      */
     abstract val vmClass: Class<VM>
 
-    val viewModel by lazy { ViewModelProviders.of(getActivity(), vmFactory.get()).get(vmClass) }
+    val viewModel by lazy { ViewModelProvider(getActivity(), vmFactory.get()).get(vmClass) }
 }

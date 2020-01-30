@@ -1,0 +1,38 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+    // Rx
+    api "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
+    api "com.github.ReactiveX:RxKotlin:$rxKotlinVersion"
+    api "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
+    api "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
+
+    // DateTime Util
+    api "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
+
+    testImplementation 'junit:junit:4.13'
+    testImplementation("org.threeten:threetenbp:${threetenbpVersion}") {
+        exclude module: "com.jakewharton.threetenabp:threetenabp:${threetenabpVersion}"
+    }
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+

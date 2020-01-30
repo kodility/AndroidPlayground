@@ -1,2 +1,2 @@
-include ':app', ':base', ':theme'
+include ':app', ':base', ':theme', ':remote', ':repository'
 rootProject.name='AndroidProjectTemplate'

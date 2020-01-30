@@ -1,5 +1,6 @@
 package com.monowar.androidprojecttemplate
 
+import com.jakewharton.threetenabp.AndroidThreeTen
 import com.monowar.androidprojecttemplate.injection.DaggerAppComponent
 import com.monowar.base.application.BaseApplication
 import dagger.android.AndroidInjector
@@ -19,9 +20,12 @@ class App : BaseApplication(), HasAndroidInjector {
     override fun onCreate() {
         super.onCreate()
 
-        DaggerAppComponent.builder()
+        /*DaggerAppComponent.builder()
             .application(this)
             .build()
-            .inject(this)
+            .inject(this)*/
+        DaggerAppComponent.factory().create(this)
+
+        AndroidThreeTen.init(this)
     }
 }

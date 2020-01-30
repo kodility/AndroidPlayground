@@ -32,5 +32,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     api 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
-    api 'com.google.android.material:material:1.2.0-alpha02'
+    api 'com.google.android.material:material:1.2.0-alpha04'
 }
