@@ -13,9 +13,7 @@ class App : BaseApplication(), HasAndroidInjector {
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
-    override fun androidInjector(): AndroidInjector<Any> {
-        return androidInjector
-    }
+    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
     override fun onCreate() {
         super.onCreate()
@@ -24,7 +22,7 @@ class App : BaseApplication(), HasAndroidInjector {
             .application(this)
             .build()
             .inject(this)*/
-        DaggerAppComponent.factory().create(this)
+        DaggerAppComponent.factory().create(this).inject(this)
 
         AndroidThreeTen.init(this)
     }

@@ -5,7 +5,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion compileSdk
-    buildToolsVersion buildToolsVersion
+    buildToolsVersion buildtoolsVersion
 
     defaultConfig {
         applicationId "com.monowar.androidprojecttemplate"
