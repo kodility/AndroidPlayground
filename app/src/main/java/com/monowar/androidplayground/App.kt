@@ -1,7 +1,7 @@
-package com.monowar.androidprojecttemplate
+package com.monowar.androidplayground
 
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.monowar.androidprojecttemplate.injection.DaggerAppComponent
+import com.monowar.androidplayground.injection.DaggerAppComponent
 import com.monowar.libbase.application.BaseApplication
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector

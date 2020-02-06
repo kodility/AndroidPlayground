@@ -8,7 +8,7 @@ android {
     buildToolsVersion buildtoolsVersion
 
     defaultConfig {
-        applicationId "com.monowar.androidprojecttemplate"
+        applicationId "com.monowar.androidplayground"
 
         minSdkVersion minSdk
         targetSdkVersion targetSdk

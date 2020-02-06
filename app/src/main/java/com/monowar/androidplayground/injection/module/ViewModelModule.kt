@@ -1,8 +1,8 @@
-package com.monowar.androidprojecttemplate.injection.module
+package com.monowar.androidplayground.injection.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.monowar.androidprojecttemplate.ui.MainViewModel
+import com.monowar.androidplayground.ui.MainViewModel
 import com.monowar.libbase.injection.ViewModelKey
 import com.monowar.libbase.viewmodel.ViewModelFactory
 import dagger.Binds

@@ -1,11 +1,11 @@
-package com.monowar.androidprojecttemplate.ui
+package com.monowar.androidplayground.ui
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
-import com.monowar.androidprojecttemplate.R
-import com.monowar.androidprojecttemplate.databinding.ActivityMainBinding
+import com.monowar.androidplayground.R
+import com.monowar.androidplayground.databinding.ActivityMainBinding
 import com.monowar.libbase.activity.MVVMDataBindingActivity
 import kotlinx.android.synthetic.main.activity_main.*
 

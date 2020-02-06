@@ -1,4 +1,4 @@
-package com.monowar.androidprojecttemplate
+package com.monowar.androidplayground
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.monowar.androidprojecttemplate.injection.module
+package com.monowar.androidplayground.injection.module
 
 import android.app.Application
 import android.content.Context

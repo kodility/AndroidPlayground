@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.monowar.androidprojecttemplate.ui.MainViewModel" />
+            type="com.monowar.androidplayground.ui.MainViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

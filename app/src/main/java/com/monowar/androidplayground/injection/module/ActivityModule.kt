@@ -1,6 +1,6 @@
-package com.monowar.androidprojecttemplate.injection.module
+package com.monowar.androidplayground.injection.module
 
-import com.monowar.androidprojecttemplate.ui.MainActivity
+import com.monowar.androidplayground.ui.MainActivity
 import com.monowar.libbase.injection.scopes.ActivityScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
