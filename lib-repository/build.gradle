@@ -1,11 +1,15 @@
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(':remote')
+    api project(':lib-api')
+
+    // Dagger
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 }
 
 sourceCompatibility = "8"

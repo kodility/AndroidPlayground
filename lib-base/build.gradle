@@ -32,13 +32,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-    api "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    api project(':lib-repository')
 
     api "androidx.appcompat:appcompat:$appcompatVersion"
-    api "androidx.core:core:$appcompatVersion"
-    api "androidx.core:core-ktx:$appcompatVersion"
-    api "androidx.fragment:fragment-ktx:1.2.0"
+    api "androidx.core:core:$androidxCoreVersion"
+    api "androidx.core:core-ktx:$androidxCoreVersion"
+    api "androidx.fragment:fragment-ktx:1.2.1"
 
     // ViewModel
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
@@ -49,21 +48,20 @@ dependencies {
     api "androidx.lifecycle:lifecycle-process:$lifecycleVersion"
     api "androidx.lifecycle:lifecycle-service:$lifecycleVersion"
     // Saved state module for ViewModel
-    api "androidx.lifecycle:lifecycle-viewmodel-savedstate:$savedstateVersion"
+    api "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
     // alternately - if using Java8, use the following instead of lifecycle-compiler
     api "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
     // optional - ReactiveStreams support for LiveData
     api "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"
 
     // Dagger
-    api "com.google.dagger:dagger:$daggerVersion"
     api "com.google.dagger:dagger-android:$daggerVersion"
     api "com.google.dagger:dagger-android-support:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     // Rx
-    api "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
+    api "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
 
     testImplementation 'junit:junit:4.13'
     // optional - Test helpers for LiveData
