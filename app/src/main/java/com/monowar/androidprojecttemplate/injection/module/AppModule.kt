@@ -2,7 +2,7 @@ package com.monowar.androidprojecttemplate.injection.module
 
 import android.app.Application
 import android.content.Context
-import com.monowar.base.injection.qualifires.ApplicationContext
+import com.monowar.libbase.injection.qualifires.ApplicationContext
 import dagger.Binds
 import dagger.Module
 

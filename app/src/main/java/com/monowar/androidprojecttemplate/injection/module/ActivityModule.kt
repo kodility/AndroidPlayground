@@ -1,7 +1,7 @@
 package com.monowar.androidprojecttemplate.injection.module
 
 import com.monowar.androidprojecttemplate.ui.MainActivity
-import com.monowar.base.injection.scopes.ActivityScope
+import com.monowar.libbase.injection.scopes.ActivityScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

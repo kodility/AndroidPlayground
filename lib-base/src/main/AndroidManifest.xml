@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.monowar.base" >
+    package="com.monowar.libbase" >
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 

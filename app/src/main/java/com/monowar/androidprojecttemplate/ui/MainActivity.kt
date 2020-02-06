@@ -6,7 +6,7 @@ import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
 import com.monowar.androidprojecttemplate.R
 import com.monowar.androidprojecttemplate.databinding.ActivityMainBinding
-import com.monowar.base.activity.MVVMDataBindingActivity
+import com.monowar.libbase.activity.MVVMDataBindingActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : MVVMDataBindingActivity<MainViewModel, ActivityMainBinding>() {
