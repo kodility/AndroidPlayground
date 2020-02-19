@@ -1,2 +1,2 @@
 include ':app', ':lib-base', ':theme', ':lib-api', ':lib-repository'
-rootProject.name='AndroidProjectTemplate'
+rootProject.name='AndroidPlayground'
