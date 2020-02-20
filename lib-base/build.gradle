@@ -39,6 +39,10 @@ dependencies {
     api "androidx.core:core-ktx:$androidxCoreVersion"
     api "androidx.fragment:fragment-ktx:1.2.1"
 
+    // Layouts
+    api 'com.google.android.material:material:1.2.0-alpha04'
+    api 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+
     // ViewModel
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     // LiveData
@@ -62,8 +66,7 @@ dependencies {
 
     // Rx
     api "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
+    api "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
 
     testImplementation 'junit:junit:4.13'
-    // optional - Test helpers for LiveData
-    testImplementation "androidx.arch.core:core-testing:2.1.0"
 }

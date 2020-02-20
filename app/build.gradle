@@ -37,13 +37,18 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(":theme")
+    implementation project(':lib-base')
 
     // Dagger
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     testImplementation 'junit:junit:4.13'
+    // optional - Test helpers for LiveData
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation("org.threeten:threetenbp:${threetenbpVersion}") {
+        exclude module: "com.jakewharton.threetenabp:threetenabp:${threetenabpVersion}"
+    }
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

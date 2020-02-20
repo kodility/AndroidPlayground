@@ -17,7 +17,6 @@ dependencies {
     // Rx
     api "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
     api "com.github.ReactiveX:RxKotlin:$rxKotlinVersion"
-    api "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
 
     // DateTime Util
     api "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
