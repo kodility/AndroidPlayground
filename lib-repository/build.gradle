@@ -10,6 +10,11 @@ dependencies {
 
     // Dagger
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    testImplementation 'junit:junit:4.13'
+    testImplementation("org.threeten:threetenbp:${threetenbpVersion}") {
+        exclude module: "com.jakewharton.threetenabp:threetenabp:${threetenabpVersion}"
+    }
 }
 
 sourceCompatibility = "8"
