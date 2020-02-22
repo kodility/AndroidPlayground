@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.firebase.crashlytics'
 
+def appName = "kinofilm"
+
 android {
     compileSdkVersion compileSdk
     buildToolsVersion buildtoolsVersion
@@ -20,6 +22,8 @@ android {
         dataBinding.enabled = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        setProperty("archivesBaseName", "${appName}-${versionName}")
     }
 
     buildTypes {
