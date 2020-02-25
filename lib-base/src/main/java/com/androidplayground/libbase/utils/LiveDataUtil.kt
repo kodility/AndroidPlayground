@@ -1,4 +1,4 @@
-package com.monowar.libbase.utils
+package com.androidplayground.libbase.utils
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

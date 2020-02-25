@@ -9,14 +9,17 @@ import android.net.NetworkInfo
 import android.os.Build
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+
 // *** Network *** \\
 fun isNetworkAvailable(context: Context): Boolean {
     val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         val network: Network? = connectivityManager.activeNetwork
         val capabilities: NetworkCapabilities? = connectivityManager.getNetworkCapabilities(network)
-        capabilities != null && (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
+        capabilities != null && (
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+            )
     } else {
         val activeNetworkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
         activeNetworkInfo != null && activeNetworkInfo.isConnected
@@ -26,7 +29,7 @@ fun isNetworkAvailable(context: Context): Boolean {
 // *** Theme *** \\
 fun isDarkMode(context: Context): Boolean {
     return context.resources.configuration.uiMode and
-            Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
+        Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
 }
 
 // *** Resource *** \\

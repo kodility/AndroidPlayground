@@ -11,14 +11,28 @@ interface BaseFragmentCommunicator {
     fun hideSoftKeyboard(view: View)
     fun startActivity(
         intent: Intent,
-        finishSelf: Boolean = false, @AnimRes enterAnim: Int = R.anim.slide_in_right, @AnimRes exitAnim: Int = R.anim.slide_out_left
+        finishSelf: Boolean = false,
+        @AnimRes enterAnim: Int = R.anim.slide_in_right,
+        @AnimRes exitAnim: Int = R.anim.slide_out_left
     )
     fun startActivity(
         cls: Class<*>,
-        finishSelf: Boolean = false, @AnimRes enterAnim: Int = R.anim.slide_in_right, @AnimRes exitAnim: Int = R.anim.slide_out_left
+        finishSelf: Boolean = false,
+        @AnimRes enterAnim: Int = R.anim.slide_in_right,
+        @AnimRes exitAnim: Int = R.anim.slide_out_left
     )
-    fun clearAllAndStartActivity(cls: Class<*>, @AnimRes enterAnim: Int = R.anim.slide_in_right, @AnimRes exitAnim: Int = R.anim.slide_out_left)
-    fun animateStartActivity(@AnimRes enterAnim: Int = R.anim.slide_in_right, @AnimRes exitAnim: Int = R.anim.slide_out_left)
-    fun animateEndActivity(@AnimRes enterAnim: Int = R.anim.slide_in_left, @AnimRes exitAnim: Int = R.anim.slide_out_right)
+    fun clearAllAndStartActivity(
+        cls: Class<*>,
+        @AnimRes enterAnim: Int = R.anim.slide_in_right,
+        @AnimRes exitAnim: Int = R.anim.slide_out_left
+    )
+    fun animateStartActivity(
+        @AnimRes enterAnim: Int = R.anim.slide_in_right,
+        @AnimRes exitAnim: Int = R.anim.slide_out_left
+    )
+    fun animateEndActivity(
+        @AnimRes enterAnim: Int = R.anim.slide_in_left,
+        @AnimRes exitAnim: Int = R.anim.slide_out_right
+    )
     fun showToast(message: String?)
 }
