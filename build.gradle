@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: "org.jlleitschuh.gradle.ktlint"
 
 ext {
-    //minSdk = project.hasProperty('minSdk') ? minSdk.toInteger() : 21
     minSdk = 21
     compileSdk = 29
     targetSdk = 29
@@ -12,6 +12,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
 
     dependencies {
@@ -19,6 +20,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath 'com.google.gms:google-services:4.3.3'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.0.0-beta02'
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:$ktLintWrapperVersion"
     }
 }
 
@@ -28,6 +30,32 @@ allprojects {
         jcenter()
         maven { url 'https://jitpack.io' }
     }
+}
+
+ktlint {
+    version = "$ktLintVersion"
+    debug = true
+    verbose = true
+    android = false
+    outputToConsole = true
+    reporters {
+        reporter "plain"
+        reporter "checkstyle"
+    }
+    ignoreFailures = true
+    enableExperimentalRules = true
+    additionalEditorconfigFile = file(".editorconfig")
+    kotlinScriptAdditionalPaths {
+        include fileTree("scripts/")
+    }
+    filter {
+        exclude("**/generated/**")
+        include("**/kotlin/**")
+    }
+}
+
+subprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
 }
 
 task clean(type: Delete) {

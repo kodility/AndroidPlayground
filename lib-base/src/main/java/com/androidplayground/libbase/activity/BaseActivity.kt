@@ -63,7 +63,11 @@ abstract class BaseActivity : AppCompatActivity(), BaseFragmentCommunicator {
 
     override fun clearAllAndStartActivity(cls: Class<*>, @AnimRes enterAnim: Int, @AnimRes exitAnim: Int) {
         val intent = Intent(getContext(), cls)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        intent.addFlags(
+            Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                Intent.FLAG_ACTIVITY_NEW_TASK
+        )
         startActivity(intent)
         animateStartActivity(enterAnim, exitAnim)
     }

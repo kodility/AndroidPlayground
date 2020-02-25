@@ -19,17 +19,20 @@ import androidx.lifecycle.LiveData
  */
 class ConnectionLiveData(private val context: Context) : LiveData<Boolean>() {
 
-    private val connectivityManager: ConnectivityManager by lazy { context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager }
-
-    private val networkCallback = @RequiresApi(Build.VERSION_CODES.LOLLIPOP) object : ConnectivityManager.NetworkCallback() {
-        override fun onAvailable(network: Network?) {
-            postValue(true)
-        }
-
-        override fun onLost(network: Network?) {
-            postValue(false)
-        }
+    private val connectivityManager: ConnectivityManager by lazy {
+        context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
     }
+
+    private val networkCallback =
+        @RequiresApi(Build.VERSION_CODES.LOLLIPOP) object : ConnectivityManager.NetworkCallback() {
+            override fun onAvailable(network: Network?) {
+                postValue(true)
+            }
+
+            override fun onLost(network: Network?) {
+                postValue(false)
+            }
+        }
 
     /*private val networkReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -44,7 +47,9 @@ class ConnectionLiveData(private val context: Context) : LiveData<Boolean>() {
             /*Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> connectivityManager.registerDefaultNetworkCallback(networkCallback)
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> lollipopNetworkAvailableRequest()
             else -> context.registerReceiver(networkReceiver, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))    //android.net.ConnectivityManager.CONNECTIVITY_ACTION*/
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> connectivityManager.registerDefaultNetworkCallback(networkCallback)
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> connectivityManager.registerDefaultNetworkCallback(
+                networkCallback
+            )
             else -> lollipopNetworkAvailableRequest()
         }
     }

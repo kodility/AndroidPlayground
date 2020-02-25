@@ -1,9 +1,12 @@
 package com.androidplayground.libapi
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
-import org.threeten.bp.*
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.ZoneId
+import org.threeten.bp.ZoneOffset
+import org.threeten.bp.ZonedDateTime
 import org.threeten.bp.format.DateTimeFormatter
 
 /**
@@ -24,11 +27,13 @@ class ExampleUnitTest {
         println(
             DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(
                 ZonedDateTime.now().toInstant().atZone(ZoneId.of("UTC")).toOffsetDateTime()
-            ))
+            )
+        )
         println(
             DateTimeFormatter.ISO_ZONED_DATE_TIME.format(
                 ZonedDateTime.now().toInstant().atZone(ZoneId.of("UTC"))
-            ))
+            )
+        )
         println()
         println(ZonedDateTime.now().toInstant().atZone(ZoneOffset.of("+01")))
         println(OffsetDateTime.now().toInstant().atZone(ZoneOffset.of("+01")))
