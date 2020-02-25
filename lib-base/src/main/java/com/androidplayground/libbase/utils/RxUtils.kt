@@ -1,4 +1,4 @@
-package com.monowar.libbase.utils
+package com.androidplayground.libbase.utils
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
