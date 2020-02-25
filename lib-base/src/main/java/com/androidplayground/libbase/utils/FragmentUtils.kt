@@ -10,8 +10,10 @@ inline fun <reified T> Fragment.listener(): T = when {
     context is T -> context as T
     activity is T -> activity as T
     parentFragment is T -> parentFragment as T
-    else -> throw IllegalStateException("The Activity or the ParentFragment using this fragment must implement " +
-            "the ${T::class.java.simpleName} interface")
+    else -> throw IllegalStateException(
+        "The Activity or the ParentFragment using this fragment must implement " +
+            "the ${T::class.java.simpleName} interface"
+    )
 }
 
 /**
