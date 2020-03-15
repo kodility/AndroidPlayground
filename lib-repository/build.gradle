@@ -1,17 +1,17 @@
-apply plugin: 'java-library'
-apply plugin: 'kotlin'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+apply plugin: "java-library"
+apply plugin: "kotlin"
+apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-kapt"
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    api project(':lib-api')
+    api project(":lib-api")
 
     // Dagger
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
-    testImplementation 'junit:junit:4.13'
+    testImplementation "junit:junit:4.13"
     testImplementation("org.threeten:threetenbp:${threetenbpVersion}") {
         exclude module: "com.jakewharton.threetenabp:threetenabp:${threetenabpVersion}"
     }

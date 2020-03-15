@@ -1,14 +1,16 @@
 *.iml
-.gradle
 .DS_Store
-.externalNativeBuild
 .cxx
-/local.properties
+local.properties
+gradlew
+gradlew.bat
+.externalNativeBuild
+.gradle
 /.idea
-/build
+#ignore the folder called build anywhere, but not files called build
+build/
 /captures
-/gradlew
-/gradlew.bat
 
 # ignoring, because public repository
 google-services.json
+keystore/
