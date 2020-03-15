@@ -30,7 +30,6 @@ ext {
 }
 
 allprojects {
-    apply from: "$rootDir/detekt.gradle"
     repositories {
         google()
         jcenter()
@@ -41,6 +40,12 @@ allprojects {
 wrapper {
     gradleVersion = "6.2.2"
     distributionType = Wrapper.DistributionType.ALL
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 task clean(type: Delete) {

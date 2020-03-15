@@ -1,7 +1,7 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-kapt"
 
 android {
     compileSdkVersion compileSdk
@@ -13,13 +13,13 @@ android {
 
         dataBinding.enabled = true
 
-        consumerProguardFiles 'consumer-rules.pro'
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
 
@@ -27,17 +27,21 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    api project(':lib-repository')
+    api project(":lib-repository")
 
     api "androidx.appcompat:appcompat:$appcompatVersion"
     api "androidx.core:core:$androidxCoreVersion"
     api "androidx.core:core-ktx:$androidxCoreVersion"
-    api 'androidx.fragment:fragment-ktx:1.2.2'
+    api "androidx.fragment:fragment-ktx:1.2.2"
 
     // ViewModel
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
@@ -65,12 +69,12 @@ dependencies {
     api "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
 
     // Layouts
-    api 'com.google.android.material:material:1.2.0-alpha05'
-    api 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    api "com.google.android.material:material:1.2.0-alpha05"
+    api "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
 
     // Dimen
     api "com.intuit.sdp:sdp-android:$sDimenVersion"
     api "com.intuit.ssp:ssp-android:$sDimenVersion"
 
-    testImplementation 'junit:junit:4.13'
+    testImplementation "junit:junit:4.13"
 }
