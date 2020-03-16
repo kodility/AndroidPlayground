@@ -20,7 +20,6 @@ plugins {
 }
 
 apply from: rootProject.file("ktlint.gradle")
-apply from: rootProject.file("detekt.gradle")
 
 ext {
     minSdk = 21
@@ -30,6 +29,7 @@ ext {
 }
 
 allprojects {
+    apply from: rootProject.file("detekt.gradle")
     repositories {
         google()
         jcenter()

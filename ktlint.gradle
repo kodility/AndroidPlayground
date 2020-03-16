@@ -4,7 +4,7 @@ ktlint {
     version = "$ktLintVersion"
     debug = true
     verbose = true
-    android = false
+    android = true
     outputToConsole = true
     reporters {
         reporter "plain"

@@ -44,9 +44,11 @@ class ConnectionLiveData(private val context: Context) : LiveData<Boolean>() {
         super.onActive()
         updateConnection()
         when {
-            /*Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> connectivityManager.registerDefaultNetworkCallback(networkCallback)
+            /*Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ->
+                connectivityManager.registerDefaultNetworkCallback(networkCallback)
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> lollipopNetworkAvailableRequest()
-            else -> context.registerReceiver(networkReceiver, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))    //android.net.ConnectivityManager.CONNECTIVITY_ACTION*/
+            else -> context.registerReceiver(networkReceiver, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))
+            //android.net.ConnectivityManager.CONNECTIVITY_ACTION*/
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> connectivityManager.registerDefaultNetworkCallback(networkCallback)
             else -> lollipopNetworkAvailableRequest()
         }
