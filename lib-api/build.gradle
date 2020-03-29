@@ -16,14 +16,14 @@ dependencies {
 
     // Rx
     api "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
-    api "com.github.ReactiveX:RxKotlin:$rxKotlinVersion"
+    api "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
 
     // DateTime Util
     api "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
 
     testImplementation "junit:junit:4.13"
-    testImplementation("org.threeten:threetenbp:${threetenbpVersion}") {
-        exclude module: "com.jakewharton.threetenabp:threetenabp:${threetenabpVersion}"
+    testImplementation("org.threeten:threetenbp:$threetenbpVersion") {
+        exclude module: "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
     }
 }
 

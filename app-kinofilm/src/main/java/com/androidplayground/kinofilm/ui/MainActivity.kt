@@ -11,8 +11,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : MVVMDataBindingActivity<MainViewModel, ActivityMainBinding>() {
 
-    override val vmClass = MainViewModel::class.java
-
     override val layoutResourceId = R.layout.activity_main
 
     override fun setInitialValues() {

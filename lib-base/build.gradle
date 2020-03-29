@@ -38,23 +38,28 @@ dependencies {
 
     api project(":lib-repository")
 
-    api "androidx.appcompat:appcompat:$appcompatVersion"
-    api "androidx.core:core:$androidxCoreVersion"
-    api "androidx.core:core-ktx:$androidxCoreVersion"
-    api "androidx.fragment:fragment-ktx:1.2.2"
+    api "androidx.appcompat:appcompat:1.1.0"
+    api "androidx.core:core-ktx:1.2.0"
+    api "androidx.fragment:fragment-ktx:1.2.3"
+    api "androidx.activity:activity-ktx:1.1.0"
+    api "androidx.collection:collection-ktx:1.1.0"
 
     // ViewModel
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     // LiveData
     api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     // Lifecycles only (without ViewModel or LiveData)
-    api "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
-    api "androidx.lifecycle:lifecycle-process:$lifecycleVersion"
-    api "androidx.lifecycle:lifecycle-service:$lifecycleVersion"
+    //api "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     // Saved state module for ViewModel
     api "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
+    // Annotation processor
+    //kapt "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
     // alternately - if using Java8, use the following instead of lifecycle-compiler
     api "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    api "androidx.lifecycle:lifecycle-process:$lifecycleVersion"
+    // optional - helpers for implementing LifecycleOwner in a Service
+    api "androidx.lifecycle:lifecycle-service:$lifecycleVersion"
     // optional - ReactiveStreams support for LiveData
     api "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"
 

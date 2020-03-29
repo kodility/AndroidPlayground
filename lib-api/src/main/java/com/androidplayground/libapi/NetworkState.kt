@@ -1,5 +1,16 @@
 package com.androidplayground.libapi
 
+sealed class NetworkState<T> {
+    data class Loading<T>(val loadingStatus: LoadingStatus = LoadingStatus.DEFAULT) : NetworkState<T>() {
+        enum class LoadingStatus {
+            DEFAULT, INITIAL, REFRESH
+        }
+    }
+
+    data class Success<T>(val data: T) : NetworkState<T>()
+    data class Error<T>(val error: Throwable) : NetworkState<T>()
+}
+
 data class Resource<T> constructor(val status: Status, val data: T? = null, val cause: Throwable? = null) {
 
     enum class Status {

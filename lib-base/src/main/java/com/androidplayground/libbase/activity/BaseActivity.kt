@@ -15,6 +15,7 @@ import com.androidplayground.libbase.fragment.BaseFragmentCommunicator
 import com.androidplayground.libbase.utils.ConnectionLiveData
 import com.androidplayground.libbase.utils.toast
 import dagger.android.AndroidInjection
+import kotlin.reflect.KClass
 
 abstract class BaseActivity : AppCompatActivity(), BaseFragmentCommunicator {
 
@@ -57,17 +58,13 @@ abstract class BaseActivity : AppCompatActivity(), BaseFragmentCommunicator {
         }
     }
 
-    override fun startActivity(cls: Class<*>, finishSelf: Boolean, @AnimRes enterAnim: Int, @AnimRes exitAnim: Int) {
-        startActivity(Intent(getContext(), cls), finishSelf, enterAnim, exitAnim)
+    override fun startActivity(activityClass: KClass<*>, finishSelf: Boolean, @AnimRes enterAnim: Int, @AnimRes exitAnim: Int) {
+        startActivity(Intent(getContext(), activityClass.java), finishSelf, enterAnim, exitAnim)
     }
 
-    override fun clearAllAndStartActivity(cls: Class<*>, @AnimRes enterAnim: Int, @AnimRes exitAnim: Int) {
-        val intent = Intent(getContext(), cls)
-        intent.addFlags(
-            Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                Intent.FLAG_ACTIVITY_CLEAR_TASK or
-                Intent.FLAG_ACTIVITY_NEW_TASK
-        )
+    override fun clearAllAndStartActivity(activityClass: KClass<*>, @AnimRes enterAnim: Int, @AnimRes exitAnim: Int) {
+        val intent = Intent(getContext(), activityClass.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
         animateStartActivity(enterAnim, exitAnim)
     }
