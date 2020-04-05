@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
+    <!-- Ignore Package. -->
+    <issue id="all">
+        <ignore path="**/com/ihsanbal/logging/**" />
+    </issue>
+
     <!-- Our designer overrule this one. -->
     <issue id="IconLauncherShape" severity="ignore" />
 

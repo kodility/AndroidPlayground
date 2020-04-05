@@ -81,5 +81,8 @@ dependencies {
     api "com.intuit.sdp:sdp-android:$sDimenVersion"
     api "com.intuit.ssp:ssp-android:$sDimenVersion"
 
+    // Timber
+    api "com.jakewharton.timber:timber:$timberVersion"
+
     testImplementation "junit:junit:4.13"
 }
