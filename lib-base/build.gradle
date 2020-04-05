@@ -40,7 +40,7 @@ dependencies {
 
     api "androidx.appcompat:appcompat:1.1.0"
     api "androidx.core:core-ktx:1.2.0"
-    api "androidx.fragment:fragment-ktx:1.2.3"
+    api "androidx.fragment:fragment-ktx:1.2.4"
     api "androidx.activity:activity-ktx:1.1.0"
     api "androidx.collection:collection-ktx:1.1.0"
 
