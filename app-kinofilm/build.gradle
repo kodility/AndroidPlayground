@@ -6,6 +6,11 @@ apply plugin: "com.google.gms.google-services"
 apply plugin: "com.google.firebase.crashlytics"
 
 def appName = "kinofilm"
+ext.versionMajor = 0 // 1 to 99
+ext.versionMinor = 0 // 0 to 99
+ext.versionPatch = 1 // 0 to 999
+ext.versionClassifier = "SNAPSHOT"
+ext.versionClassifierCodes = ["SNAPSHOT": 0, "APLHA": 1, "BETA": 2, "RC1": 3, "RC2": 4, "RELEASE": 5].withDefault { 5 }
 
 android {
     compileSdkVersion compileSdk
@@ -17,8 +22,8 @@ android {
         minSdkVersion minSdk
         targetSdkVersion targetSdk
 
-        versionCode 1
-        versionName "1.0"
+        versionCode generateVersionCode()
+        versionName generateVersionName()
 
         //viewBinding.enabled = true
         dataBinding.enabled = true
@@ -37,10 +42,10 @@ android {
             def keystoreProperties = new Properties()
             keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
-            storeFile rootProject.file(keystoreProperties['keyStoreFile'])
-            storePassword keystoreProperties['keyStorePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyAliasPassword']
+            storeFile rootProject.file(keystoreProperties["keyStoreFile"])
+            storePassword keystoreProperties["keyStorePassword"]
+            keyAlias keystoreProperties["keyAlias"]
+            keyPassword keystoreProperties["keyAliasPassword"]
         }
     }
 
@@ -55,6 +60,18 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
 
             signingConfig signingConfigs.release
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
         }
     }
 
@@ -78,16 +95,34 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     // Firebase SDK
-    implementation "com.google.firebase:firebase-analytics:17.2.3"
-    implementation 'com.google.firebase:firebase-crashlytics:17.0.0-beta02'
+    implementation "com.google.firebase:firebase-analytics:17.3.0"
+    implementation "com.google.firebase:firebase-crashlytics:17.0.0-beta03"
 
     testImplementation "junit:junit:4.13"
     // optional - Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:2.1.0"
-    testImplementation("org.threeten:threetenbp:${threetenbpVersion}") {
-        exclude module: "com.jakewharton.threetenabp:threetenabp:${threetenabpVersion}"
+    testImplementation("org.threeten:threetenbp:$threetenbpVersion") {
+        exclude module: "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
     }
 
     androidTestImplementation "androidx.test.ext:junit:1.1.1"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
+}
+
+private Integer generateVersionCode() {
+    def versionCode = ext.versionMajor * 1000000 + ext.versionMinor * 10000 + ext.versionPatch * 10 + ext.versionClassifierCodes.get(ext.versionClassifier)
+    println "VersionCode " + versionCode
+    return versionCode
+}
+
+private String generateVersionName() {
+    String versionName = "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}"
+    if (ext.versionClassifier == null) {
+        ext.versionClassifier = "RELEASE"
+    }
+    if (ext.versionClassifier != "RELEASE") {
+        versionName += "-" + ext.versionClassifier
+    }
+    println "VersionName " + versionName
+    return versionName
 }

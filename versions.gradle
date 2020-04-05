@@ -1,0 +1,21 @@
+ext {
+    minSdk = 21
+    compileSdk = 29
+    targetSdk = 29
+    buildtoolsVersion = "29.0.3"
+
+    lifecycleVersion = "2.2.0"
+
+    daggerVersion = "2.27"
+
+    rxJavaVersion = "3.0.1"
+    rxKotlinVersion = "3.0.0-RC1"
+    rxAndroidVersion = "3.0.0"
+    rxRelayVersion = "2.1.1"
+
+    threetenabpVersion = "1.2.3"
+    threetenbpVersion = "1.4.2"
+
+    sDimenVersion = "1.0.6"
+}
+
