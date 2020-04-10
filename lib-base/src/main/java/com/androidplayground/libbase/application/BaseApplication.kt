@@ -1,10 +1,10 @@
 package com.androidplayground.libbase.application
 
-import android.app.Application
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.androidplayground.libbase.lifecycleobserver.ApplicationObserver
+import dagger.android.support.DaggerApplication
 
-abstract class BaseApplication : Application() {
+abstract class BaseApplication : DaggerApplication() {
 
     val processLifecycle by lazy { ProcessLifecycleOwner.get().lifecycle }
 

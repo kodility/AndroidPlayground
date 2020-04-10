@@ -13,9 +13,15 @@ ext {
     rxAndroidVersion = "3.0.0"
     rxRelayVersion = "2.1.1"
 
+    okhttpVersion = "4.5.0"
+    retrofitVersion = "2.8.1"
+    moshiVersion = "1.9.2"
+
     threetenabpVersion = "1.2.3"
-    threetenbpVersion = "1.4.2"
+    threetenbpVersion = "1.4.3"
 
     sDimenVersion = "1.0.6"
+
+    timberVersion = "4.7.1"
 }
 

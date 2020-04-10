@@ -1,7 +1,35 @@
-apply plugin: "java-library"
-apply plugin: "kotlin"
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
 apply plugin: "kotlin-android-extensions"
 apply plugin: "kotlin-kapt"
+
+android {
+    compileSdkVersion compileSdk
+    buildToolsVersion buildtoolsVersion
+
+    defaultConfig {
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = "1.8"
+        targetCompatibility = "1.8"
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -9,6 +37,19 @@ dependencies {
     // Kotlin
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     api "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
+    // Okhttp
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
 
     // Dagger
     api "com.google.dagger:dagger:$daggerVersion"
@@ -21,23 +62,18 @@ dependencies {
     // DateTime Util
     api "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
 
+    // Timber
+    api "com.jakewharton.timber:timber:$timberVersion"
+
     testImplementation "junit:junit:4.13"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
     testImplementation("org.threeten:threetenbp:$threetenbpVersion") {
         exclude module: "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
     }
 }
 
-sourceCompatibility = "8"
-targetCompatibility = "8"
-
-compileKotlin {
-    kotlinOptions {
-        jvmTarget = "1.8"
+ktlint {
+    filter {
+        exclude("com/ihsanbal/logging/**") // https://github.com/ihsanbal/LoggingInterceptor
     }
 }
-compileTestKotlin {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
-
