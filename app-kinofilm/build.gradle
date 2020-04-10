@@ -83,6 +83,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    dexOptions {
+        javaMaxHeapSize "1g"
+    }
 }
 
 dependencies {

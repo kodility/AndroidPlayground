@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
 object ApiFactory {
     private const val TIME_OUT = 30L
 
-    private const val cacheSize: Long = 50 * 1024 * 1024 // 50 MB
+    private const val cacheSize: Long = 10 * 1024 * 1024 // 10 MB
 
     val moshi: Moshi by lazy { Moshi.Builder().build() }
 
@@ -36,7 +36,12 @@ object ApiFactory {
             .build()
     }
 
-    fun getOkHttpClient(applicationContext: Context, timeOut: Long = TIME_OUT, isDebug: Boolean, logTag: String): OkHttpClient {
+    fun getOkHttpClientBuilder(
+        applicationContext: Context,
+        timeOut: Long = TIME_OUT,
+        isDebug: Boolean,
+        logTag: String
+    ): OkHttpClient.Builder {
         return OkHttpClient.Builder()
             .readTimeout(timeOut, TimeUnit.SECONDS)
             .writeTimeout(timeOut, TimeUnit.SECONDS)
@@ -50,7 +55,6 @@ object ApiFactory {
                     .build()
             )
             .cache(getCache(applicationContext))
-            .build()
     }
 
     private fun getCache(context: Context) = Cache(context.cacheDir, cacheSize)
