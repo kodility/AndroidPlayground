@@ -28,7 +28,7 @@ jobs:
       - name: Create keystore.jks
         env:
           KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
-        run: openssl base64 -d -in $KEYSTORE_FILE -out keystore/keystore.jks
+        run: echo $KEYSTORE_FILE | base64 --decode > keystore/keystore.jks
       - name: Create keystore.properties
         env:
           KEYSTORE_PROPERTIES_FILE: ${{ secrets.KEYSTORE_PROPERTIES_FILE }}
