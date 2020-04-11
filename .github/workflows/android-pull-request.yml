@@ -1,4 +1,4 @@
-name: Android CI
+name: Android Pull Request CI
 
 on:
   pull_request:
@@ -16,4 +16,4 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
-      run: ./gradlew check --stacktrace
+      run: bash ./gradlew check --stacktrace
