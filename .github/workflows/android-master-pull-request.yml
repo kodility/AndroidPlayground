@@ -30,7 +30,7 @@ jobs:
           PASSWORD: "${{ secrets.PASSWORD }}"
           KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
         run: |
-          echo $KEYSTORE_PROPERTIES_FILE > app-kinofilm/keystore.jks.asc
+          echo $KEYSTORE_FILE > app-kinofilm/keystore.jks.asc
           gpg -d --passphrase $PASSWORD --batch app-kinofilm/keystore.jks.asc > app-kinofilm/keystore.jks
       - name: Create keystore.properties
         env:
