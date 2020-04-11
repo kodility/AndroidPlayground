@@ -27,8 +27,10 @@ jobs:
       # Step 3: Create keystore.properties and keystore.jks file
       - name: Create keystore.properties
         env:
-          KEYSTORE_PROPERTIES_FILE: ${{ secrets.KEYSTORE_PROPERTIES_FILE }}
-        run: echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > app-kinofilm/keystore.properties
+          KEYSTORE_PROPERTIES_FILE: "${{ secrets.KEYSTORE_PROPERTIES_FILE }}"
+        run: |
+          echo $KEYSTORE_PROPERTIES_FILE > app-kinofilm/keystore.properties.asc
+          gpg -d --passphrase "${{ secrets.PASSWORD }}" --batch keystore.properties.asc > app-kinofilm/keystore.properties
       - name: Create keystore.jks
         env:
           KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
