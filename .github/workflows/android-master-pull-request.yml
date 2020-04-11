@@ -30,13 +30,13 @@ jobs:
           KEYSTORE_PROPERTIES_FILE: "${{ secrets.KEYSTORE_PROPERTIES_FILE }}"
         run: |
           mkdir ./keystore
-          echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > keystore/keystore.properties
+          echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > ./keystore/keystore.properties
       - name: Create keystore.jks
         env:
           KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
         run: |
           mkdir ./keystore
-          echo $KEYSTORE_FILE | base64 --decode > keystore/keystore.jks
+          echo $KEYSTORE_FILE | base64 --decode > ./keystore/keystore.jks
         working-directory: AndroidPlayground
       
       # Step 4: Run lint, ktlint, detekt and unit test
