@@ -18,13 +18,6 @@ jobs:
         with:
           java-version: 1.8
       
-      - name: Run Test file creation with library
-        id: write_file
-        uses: timheuer/base64-to-file@v1.0.3
-        with:
-          fileName: 'keystore.properties'
-          encodedString: ${{ secrets.KEYSTORE_PROPERTIES_FILE }}
-      
       # Step 2: Decode Google services configuration file
       - name: Decode google-services.json
         env:
@@ -32,14 +25,14 @@ jobs:
         run: echo $GOOGLE_SERVICE_JSON > app-kinofilm/google-services.json
       
       # Step 3: Create keystore.properties and keystore.jks file
+      - name: Create keystore.jks
+        env:
+          KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
+        run: openssl base64 -d -in KEYSTORE_FILE -out keystore/keystore.jks
       - name: Create keystore.properties
         env:
           KEYSTORE_PROPERTIES_FILE: ${{ secrets.KEYSTORE_PROPERTIES_FILE }}
         run: openssl base64 -d -in KEYSTORE_PROPERTIES_FILE > keystore/keystore.properties
-      - name: Create keystore.jks
-        env:
-          KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
-        run: echo $KEYSTORE_FILE | base64 --decode > keystore/keystore.jks
       
       # Step 4: Run lint, ktlint, detekt and unit test
       - name: Run Checks
