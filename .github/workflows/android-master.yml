@@ -10,7 +10,6 @@ jobs:
   check:
     name: Run Check
     runs-on: ubuntu-latest
-    if: github.event == 'pull_request'
 
     steps:
       - uses: actions/checkout@v1
