@@ -34,7 +34,9 @@ jobs:
       - name: Create keystore.jks
         env:
           KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
-        run: echo $KEYSTORE_FILE | base64 --decode > keystore/keystore.jks
+        run: |
+          mkdir ./keystore
+          echo $KEYSTORE_FILE | base64 --decode > keystore/keystore.jks
         working-directory: AndroidPlayground
       
       # Step 4: Run lint, ktlint, detekt and unit test
