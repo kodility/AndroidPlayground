@@ -8,9 +8,9 @@ on:
 
 jobs:
   check:
-    if: github.event == 'pull_request'
     name: Run Check
     runs-on: ubuntu-latest
+    if: github.event == 'pull_request'
 
     steps:
       - uses: actions/checkout@v1
@@ -20,12 +20,11 @@ jobs:
           java-version: 1.8
       - name: Unit tests
         run: bash ./gradlew check --stacktrace
-        if: github.event == 'pull_request'
 
   build:
-    if: github.event == 'push'
     name: Build Debug APK
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
+    if: github.event == 'push'
 
     steps:
       - uses: actions/checkout@v1
