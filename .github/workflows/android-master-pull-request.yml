@@ -27,16 +27,17 @@ jobs:
       # Step 3: Create keystore.properties and keystore.jks file
       - name: Create keystore.jks
         env:
-          KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
+          PASSWORD: "${{ secrets.PASSWORD }}"
+          KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
         run: |
           echo $KEYSTORE_PROPERTIES_FILE > app-kinofilm/keystore.jks.asc
-          gpg -d --passphrase "${{ secrets.PASSWORD }}" --batch app-kinofilm/keystore.jks.asc > app-kinofilm/keystore.jks
+          gpg -d --passphrase $PASSWORD --batch app-kinofilm/keystore.jks.asc > app-kinofilm/keystore.jks
       - name: Create keystore.properties
         env:
           KEYSTORE_PROPERTIES_FILE: "${{ secrets.KEYSTORE_PROPERTIES_FILE }}"
         run: |
           echo $KEYSTORE_PROPERTIES_FILE > app-kinofilm/keystore.properties.asc
-          gpg -d --passphrase "${{ secrets.PASSWORD }}" --batch app-kinofilm/keystore.properties.asc > app-kinofilm/keystore.properties
+          gpg -d --passphrase $PASSWORD --batch app-kinofilm/keystore.properties.asc > app-kinofilm/keystore.properties
       
       # Step 4: Run lint, ktlint, detekt and unit test
       - name: Run Checks
