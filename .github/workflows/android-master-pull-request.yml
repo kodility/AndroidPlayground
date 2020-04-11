@@ -28,7 +28,7 @@ jobs:
       - name: Create keystore.properties
         env:
           KEYSTORE_PROPERTIES_FILE: "${{ secrets.KEYSTORE_PROPERTIES_FILE }}"
-        run: openssl base64 -d -in $KEYSTORE_PROPERTIES_FILE > app-kinofilm/keystore.properties
+        run: echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > app-kinofilm/keystore.properties
       - name: Create keystore.jks
         env:
           KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
