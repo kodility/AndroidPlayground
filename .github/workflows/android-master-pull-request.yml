@@ -22,7 +22,7 @@ jobs:
       - name: Decode google-services.json
         env:
           GOOGLE_SERVICE_JSON: ${{ secrets.GOOGLE_SERVICE_JSON }}
-        run: echo $GOOGLE_SERVICE_JSON > ./app-kinofilm/google-services.json
+        run: echo $GOOGLE_SERVICE_JSON > app-kinofilm/google-services.json
       
       # Step 3: Create keystore.properties and keystore.jks file
       - name: Create keystore.properties
@@ -30,11 +30,11 @@ jobs:
           KEYSTORE_PROPERTIES_FILE: "${{ secrets.KEYSTORE_PROPERTIES_FILE }}"
         run: |
           mkdir ./keystore
-          echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > ./keystore/keystore.properties
+          echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > keystore/keystore.properties
       - name: Create keystore.jks
         env:
           KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
-        run: echo $KEYSTORE_FILE | base64 --decode > ./keystore/keystore.jks
+        run: echo $KEYSTORE_FILE | base64 --decode > keystore/keystore.jks
         working-directory: AndroidPlayground
       
       # Step 4: Run lint, ktlint, detekt and unit test
