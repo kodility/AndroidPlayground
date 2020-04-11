@@ -28,7 +28,8 @@ jobs:
       - name: Create keystore.properties
         env:
           KEYSTORE_PROPERTIES_FILE: "${{ secrets.KEYSTORE_PROPERTIES_FILE }}"
-        run: mkdir keystore
+        run: |
+          sudo mkdir keystore
           echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > keystore/keystore.properties
       - name: Create keystore.jks
         env:
