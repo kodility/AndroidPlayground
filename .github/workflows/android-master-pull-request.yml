@@ -25,17 +25,15 @@ jobs:
         run: echo $GOOGLE_SERVICE_JSON > app-kinofilm/google-services.json
       
       # Step 3: Create keystore.properties and keystore.jks file
-      - name: Create keystore.jks
-        env:
-          PASSWORD: "${{ secrets.PASSWORD }}"
-          KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
-        run: echo $KEYSTORE_FILE | base64 --decode > app-kinofilm/keystore.jks
       - name: Create keystore.properties
         env:
           KEYSTORE_PROPERTIES_FILE: "${{ secrets.KEYSTORE_PROPERTIES_FILE }}"
-        run: |
-          echo $KEYSTORE_PROPERTIES_FILE > app-kinofilm/keystore.properties.asc
-          gpg -d --passphrase $PASSWORD --batch app-kinofilm/keystore.properties.asc > app-kinofilm/keystore.properties
+        run: mkdir keystore
+          echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > keystore/keystore.properties
+      - name: Create keystore.jks
+        env:
+          KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
+        run: echo $KEYSTORE_FILE | base64 --decode > keystore/keystore.jks
       
       # Step 4: Run lint, ktlint, detekt and unit test
       - name: Run Checks
