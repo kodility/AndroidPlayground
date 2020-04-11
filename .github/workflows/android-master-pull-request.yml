@@ -28,11 +28,11 @@ jobs:
       - name: Create keystore.properties
         env:
           KEYSTORE_PROPERTIES_FILE: ${{ secrets.KEYSTORE_PROPERTIES_FILE }}
-        run: echo $KEYSTORE_PROPERTIES_FILE | base64 -d > keystore/keystore.properties
+        run: echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > keystore/keystore.properties
       - name: Create keystore.jks
         env:
           KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
-        run: echo $KEYSTORE_FILE | base64 -d > keystore/keystore.jks
+        run: echo $KEYSTORE_FILE | base64 --decode > keystore/keystore.jks
       
       # Step 4: Run lint, ktlint, detekt and unit test
       - name: Run Checks
