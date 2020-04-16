@@ -1,5 +1,4 @@
 build:
-  excludes: "com.ihsanbal.logging"
   maxIssues: 1
   weights:
   # complexity: 2
@@ -69,7 +68,8 @@ complexity:
     threshold: 60
   LongParameterList:
     active: true
-    threshold: 6
+    constructorThreshold: 6
+    functionThreshold: 6
     ignoreDefaultParameters: true
   MethodOverloading:
     active: false
@@ -400,7 +400,7 @@ potential-bugs:
   UnreachableCode:
     active: true
   UnsafeCallOnNullableType:
-    active: false
+    active: true
   UnsafeCast:
     active: false
   UselessPostfixExpression:
