@@ -1,0 +1,54 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryDark</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="android:colorForeground">@color/colorForeground</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+        <item name="colorControlActivated">@color/colorControlActivated</item>
+        <item name="colorControlHighlight">@color/colorControlHighlight</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorAccent">@color/colorSecondary</item>
+        <item name="android:textColorPrimary">@color/selector_primary_text</item>
+        <item name="android:textColorSecondary">@color/selector_secondary_text</item>
+        <item name="android:textColor">@color/selector_primary_text</item>
+        <item name="android:textColorHint">@color/colorHintText</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="materialButtonStyle">@style/AppButton</item>
+        <item name="textAppearanceButton">@style/AppTextAppearance.Button</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+    </style>
+
+    <style name="AppTheme.Fullscreen" parent="AppTheme.NoActionBar">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/full_screen_actionbar_overlay</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.DayNight" />
+
+</resources>

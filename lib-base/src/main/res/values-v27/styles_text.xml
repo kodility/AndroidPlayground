@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTextAppearance.Header1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="lineHeight">@dimen/_45sdp</item>
+        <item name="fontFamily">@font/light</item>
+        <item name="android:fontFamily">@font/light</item>
+        <item name="android:textSize">@dimen/_38ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Header2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="lineHeight">@dimen/_35sdp</item>
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">@dimen/_30ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Header3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="lineHeight">@dimen/_33sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_28ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Header4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="lineHeight">@dimen/_30sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_26ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Header5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="lineHeight">@dimen/_28sdp</item>
+        <item name="fontFamily">@font/medium</item>
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textSize">@dimen/_24ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Header6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="lineHeight">@dimen/_23sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_20ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="lineHeight">@dimen/_19sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="lineHeight">@dimen/_19sdp</item>
+        <item name="fontFamily">@font/medium</item>
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Subtitle3" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="lineHeight">@dimen/_19sdp</item>
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Subtitle4" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="lineHeight">@dimen/_19sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="lineHeight">@dimen/_18sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="lineHeight">@dimen/_17sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Body3" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="lineHeight">@dimen/_15sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Body4" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="lineHeight">@dimen/_13sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="lineHeight">@dimen/_14sdp</item>
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.CaptionLight" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="lineHeight">@dimen/_12sdp</item>
+        <item name="fontFamily">@font/light</item>
+        <item name="android:fontFamily">@font/light</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="lineHeight">@dimen/_16sdp</item>
+        <item name="fontFamily">@font/medium</item>
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+</resources>
