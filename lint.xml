@@ -5,14 +5,6 @@
         <ignore path="**/com/ihsanbal/logging/**" />
     </issue>
 
-    <!-- Our designer overrule this one. -->
-    <issue id="IconLauncherShape" severity="ignore" />
-
-    <!-- We'll update at our pace. -->
-    <issue id="GradleDependency" severity="ignore" />
-    <issue id="OldTargetApi" severity="ignore" />
-
-
     <!-- We need a new release with Timber. -->
     <issue id="ObsoleteLintCustomCheck">
         <ignore regexp="timber" />
@@ -28,113 +20,6 @@
     <issue id="TimberTagLength" severity="ignore" />
     <issue id="TimberExceptionLogging" severity="ignore" />
 
-    <!-- Less method count matters. -->
-    <issue id="SyntheticAccessor" severity="error" />
-
-    <!-- We're aware of this and i11y will follow later. Once we've established it we can re-enable this check again. -->
-    <issue id="ContentDescription" severity="ignore" />
-
-    <!-- We'll follow up with this later. -->
-    <issue id="InconsistentArrays" severity="ignore" />
-
     <!-- We can't always go and optimize those paths and we still prefer SVGs over PNGs. -->
     <issue id="VectorPath" severity="ignore" />
-
-    <!-- This is sadly messed up all over the place. -->
-    <issue id="RtlEnabled" severity="ignore" />
-
-    <issue id="PluralsCandidate" severity="ignore" />
-    <issue id="TrulyRandom" severity="ignore" />
-
-    <!-- Prevent dummy icons to fail in demo project. -->
-    <issue id="VectorPath" severity="ignore" />
-    <issue id="IconLocation" severity="ignore" />
-    <issue id="IconMissingDensityFolder" severity="ignore" />
-
-    <!-- No need for this rule. -->
-    <issue id="LabelFor" severity="ignore" />
-
-    <!-- We're overriding this at flavor level. -->
-    <issue id="UnusedResources">
-        <ignore regexp="ic_branded_toolbar_icon" />
-        <ignore regexp="ic_agency_logo" />
-        <ignore regexp="strings.xml" />
-        <ignore regexp="links.xml" />
-        <ignore regexp="splash_screen.jpg" />
-        <ignore regexp="splash_screen.png" />
-        <ignore regexp="fragment_map.xml" />
-        <ignore regexp="fragment_feedback.xml" />
-        <ignore regexp="fragment_paymentprofile_selection.xml" />
-        <ignore regexp="ic_launcher_round.xml" />
-        <ignore regexp="ic_info_i.xml" />
-        <ignore regexp="ondemand_rider_img_shuttle.png" />
-        <ignore regexp="ic_ssb_ticket.xml" />
-        <ignore regexp="ondemand_rider_ic_shuttle_list_item.xml" />
-        <ignore regexp="ondemand_rider_ic_shuttle_list_inactive_item.xml" />
-        <ignore regexp="publictransport_ic_msp_selector.xml" />
-        <ignore regexp="poi_ic_education.xml" />
-        <ignore regexp="poi_ic_fitness.xml" />
-        <ignore regexp="poi_ic_park.xml" />
-        <ignore regexp="publictransport_ic_logo_bus.xml" />
-        <ignore regexp="publictransport_ic_logo_rail.xml" />
-        <ignore regexp="publictransport_ic_logo_subway.xml" />
-        <ignore regexp="publictransport_ic_logo_urban.xml" />
-        <ignore regexp="ondemand_rider_ic_map_shuttle.xml" />
-        <ignore regexp="msp_ic_public_transport" />
-    </issue>
-
-    <issue id="TypographyDashes">
-        <ignore regexp="strings.xml" />
-    </issue>
-
-    <!-- this is a fix for a lint error that occurs using okio (okhttp dependency)
-    see here for more details: https://github.com/square/okio/issues/58 -->
-    <issue id="InvalidPackage">
-        <warning regexp="rhino-1.7.7.1.jar" />
-        <ignore regexp=".*rhino.*" />
-    </issue>
-
-    <!-- We're aware of this and don't care that much. -->
-    <issue id="UnusedAttribute">
-        <ignore regexp="fillType" />
-    </issue>
-
-    <!-- We get those dynamically / override them. -->
-    <issue id="UnusedResources">
-        <ignore regexp="authstrings.xml" />
-        <ignore regexp="environments.xml" />
-        <ignore regexp="colors.xml" />
-        <ignore regexp="values.xml" />
-        <!-- They are all being used at flavor level. -->
-        <ignore regexp="R.string.legal_" />
-        <ignore regexp="map_keys.xml" />
-    </issue>
-
-    <!-- Not gonna happen. -->
-    <issue id="GoogleAppIndexingWarning" severity="ignore" />
-
-    <issue id="MissingTranslation">
-        <!-- False positives. https://issuetracker.google.com/issues/117894770 -->
-        <ignore regexp="email_token_scheme" />
-        <ignore regexp="facebook_app_id" />
-        <ignore regexp="mainmenu_help_open_url" />
-        <ignore regexp="mobility_coupons_terms_and_conditions_link" />
-        <!-- Needs to be translated by an agency. -->
-        <ignore regexp="ondemand_rider_onboarding_content_label" />
-        <!-- False positives. https://issuetracker.google.com/issues/117894770 -->
-        <ignore regexp="ondemand_rider_checkout_valid_monthly_pass" />
-        <ignore regexp="ondemand_rider_checkout_valid_monthly_pass_description" />
-        <ignore regexp="ondemand_rider_checkout_discount_toggle_title_2" />
-        <ignore regexp="ondemand_rider_checkout_discount_toggle_subtitle_2" />
-    </issue>
-
-    <issue id="ResourceName">
-        <ignore regexp="strings.xml" />
-        <!-- Temporar workaround until we folded the UI related bits into the mobility SDK. -->
-        <ignore regexp="mainmenu_user_open_label" />
-    </issue>
-
-    <issue id="WrongConstant">
-        <ignore regexp="SVGAndroidRenderer.java" />
-    </issue>
 </lint>
