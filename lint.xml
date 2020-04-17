@@ -2,7 +2,7 @@
 <lint>
     <!-- Ignore Package. -->
     <issue id="all">
-        <ignore path="**/com/ihsanbal/logging/**" />
+        <ignore path="*/com/ihsanbal/logging/*" />
     </issue>
 
     <!-- We need a new release with Timber. -->
