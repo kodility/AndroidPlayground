@@ -2,12 +2,21 @@ apply plugin: "io.gitlab.arturbosch.detekt"
 
 detekt {
     config = files("$rootDir/detekt.yml")
-    input = files(
-            "src/main/kotlin"
-    )
+    buildUponDefaultConfig = true
+    parallel = true
     reports {
         html.enabled = true
         xml.enabled = false
         txt.enabled = false
     }
+}
+
+tasks.detekt {
+    description = "Overrides detekt check"
+    jvmTarget = "1.8"
+    include("**/*.kt")
+    include("**/*.kts")
+    exclude("**/resources/**")
+    exclude("**/build/**")
+    exclude("**/com/ihsanbal/logging/**")
 }

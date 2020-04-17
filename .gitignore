@@ -2,8 +2,6 @@
 .DS_Store
 .cxx
 local.properties
-gradlew
-gradlew.bat
 .externalNativeBuild
 .gradle
 /.idea

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#dcedc8</color>
+    <color name="colorPrimaryLight">#fffffb</color>
+    <color name="colorPrimaryDark">#aabb97</color>
+    <color name="colorSecondary">#d7ccc8</color>
+    <color name="colorSecondaryLight">#fffffb</color>
+    <color name="colorSecondaryDark">#a69b97</color>
+    <color name="colorBackground">#ffffff</color>
+    <color name="colorSurface">#eeeeee</color>
+    <color name="colorForeground">#eeeeee</color>
+
+    <color name="colorPrimaryText">#1c1c1c</color>
+    <color name="colorPrimaryTextDisabled">#661C1C1C</color>
+    <color name="colorSecondaryText">#231512</color>
+    <color name="colorSecondaryTextDisabled">#66231512</color>
+    <color name="colorHintText">#90a4ae</color>
+
+    <color name="colorIcon">#231512</color>
+    <color name="colorIconDisabled">#66231512</color>
+
+    <color name="colorOnPrimary">@color/colorPrimaryText</color>
+    <color name="colorOnSecondary">@color/colorSecondaryText</color>
+    <color name="colorOnBackground">@color/colorPrimaryText</color>
+    <color name="colorOnSurface">@color/colorPrimaryText</color>
+
+    <color name="colorControlNormal">@color/colorSecondary</color>
+    <color name="colorControlActivated">@color/colorSecondaryDark</color>
+    <color name="colorControlHighlight">@color/colorRipple</color>
+
+    <color name="colorError">#d11900</color>
+    <color name="colorOnError">#ffffff</color>
+
+    <color name="colorRipple">#212121</color>
+
+    <color name="colorNavigationBarDivider">#cfd8dc</color>
+
+    <color name="full_screen_actionbar_overlay">#000000</color>
+</resources>
