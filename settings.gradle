@@ -1,2 +1,7 @@
-include ':app-kinofilm', ':lib-base', ':lib-api', ':lib-repository'
+include ':app-kinofilm'
+include ':lib-common'
+include ':lib-base'
+include ':lib-api'
+include ':lib-localdata'
+include ':lib-repository'
 rootProject.name='AndroidPlayground'

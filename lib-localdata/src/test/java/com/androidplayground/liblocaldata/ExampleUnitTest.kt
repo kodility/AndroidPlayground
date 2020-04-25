@@ -1,4 +1,4 @@
-package com.androidplayground.libapi
+package com.androidplayground.liblocaldata
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -23,5 +23,7 @@ ext {
     sDimenVersion = "1.0.6"
 
     timberVersion = "4.7.1"
+
+    unitTestVersion = "4.13"
 }
 
