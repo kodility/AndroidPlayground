@@ -4,7 +4,6 @@ import com.androidplayground.liblocaldata.Clearable
 import io.reactivex.rxjava3.annotations.CheckReturnValue
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Maybe
-import java.lang.reflect.Type
 
 /**
  * Created by Mostafa Monowar at 03-May-20 2:19 PM
@@ -32,9 +31,6 @@ interface KeyValueStore : Clearable {
     fun put(key: String, value: String): Completable
 
     @CheckReturnValue
-    fun <T> put(key: String, modelData: T, type: Type): Completable
-
-    @CheckReturnValue
     fun getBoolean(key: String): Maybe<Boolean>
 
     @CheckReturnValue
@@ -51,8 +47,6 @@ interface KeyValueStore : Clearable {
 
     @CheckReturnValue
     fun getString(key: String): Maybe<String>
-
-    fun <T> getModelData(key: String, type: Type): Maybe<T>
 
     @CheckReturnValue
     fun remove(key: String): Completable

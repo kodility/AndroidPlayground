@@ -6,11 +6,11 @@ import dagger.Binds
 import dagger.Module
 
 /**
- * Created by Mostafa Monowar at 25-Apr-20 2:19 AM
+ * Created by Mostafa Monowar at 03-May-20 6:01 PM
  * monowar1993@gmail.com
  */
 @Module
-abstract class SchedulersModule {
+abstract class CoreModule {
     @Binds
     abstract fun bindSchedulerProvider(androidSchedulerProvider: AndroidSchedulerProvider): SchedulerProvider
 }

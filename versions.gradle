@@ -25,5 +25,7 @@ ext {
     timberVersion = "4.7.1"
 
     unitTestVersion = "4.13"
+    mockitoVersion = "3.3.3"
+    assertJVersion = "3.15.0"
 }
 

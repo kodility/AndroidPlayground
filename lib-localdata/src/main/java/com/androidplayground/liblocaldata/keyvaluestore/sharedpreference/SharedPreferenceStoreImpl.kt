@@ -3,25 +3,18 @@ package com.androidplayground.liblocaldata.keyvaluestore.sharedpreference
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
-import com.androidplayground.libcommon.injection.qualifires.ApplicationContext
-import com.squareup.moshi.Moshi
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Maybe
-import java.io.IOException
-import java.lang.reflect.Type
-import javax.inject.Inject
 
 /**
  * Created by Mostafa Monowar at 03-May-20 3:34 PM
  * monowar1993@gmail.com
  */
-class SharedPreferenceStoreImpl @Inject constructor(
-    @ApplicationContext context: Context,
-    name: String,
-    private val moshi: Moshi
-) : SharedPreferenceStore {
+class SharedPreferenceStoreImpl constructor(applicationContext: Context, name: String) : SharedPreferenceStore {
 
-    private val sharedPreferences: SharedPreferences by lazy { context.getSharedPreferences(name, Context.MODE_PRIVATE) }
+    private val sharedPreferences: SharedPreferences by lazy {
+        applicationContext.getSharedPreferences(name, Context.MODE_PRIVATE)
+    }
 
     override fun put(key: String, value: Boolean): Completable {
         return Completable.fromAction { sharedPreferences.edit { putBoolean(key, value) } }
@@ -45,10 +38,6 @@ class SharedPreferenceStoreImpl @Inject constructor(
 
     override fun put(key: String, value: String): Completable {
         return Completable.fromAction { sharedPreferences.edit { putString(key, value) } }
-    }
-
-    override fun <T> put(key: String, modelData: T, type: Type): Completable {
-        return Completable.fromAction { sharedPreferences.edit { putString(key, moshi.adapter<T>(type).toJson(modelData)) } }
     }
 
     override fun getBoolean(key: String): Maybe<Boolean> {
@@ -120,28 +109,6 @@ class SharedPreferenceStoreImpl @Inject constructor(
             try {
                 sharedPreferences.getString(key, null)?.let {
                     emitter.onSuccess(it)
-                } ?: run {
-                    emitter.onError(NullPointerException("No value is stored using key $key"))
-                }
-            } catch (e: ClassCastException) {
-                emitter.onError(e)
-            }
-        }
-    }
-
-    override fun <T> getModelData(key: String, type: Type): Maybe<T> {
-        return Maybe.create { emitter ->
-            try {
-                sharedPreferences.getString(key, null)?.let { json ->
-                    try {
-                        moshi.adapter<T>(type).fromJson(json)?.let {
-                            emitter.onSuccess(it)
-                        } ?: run {
-                            emitter.onError(RuntimeException("Cannot convert to null."))
-                        }
-                    } catch (e: IOException) {
-                        emitter.onError(e)
-                    }
                 } ?: run {
                     emitter.onError(NullPointerException("No value is stored using key $key"))
                 }

@@ -6,7 +6,12 @@ import com.androidplayground.libcommon.injection.qualifires.ApplicationContext
 import dagger.Binds
 import dagger.Module
 
-@Module
+@Module(
+    includes = [
+        ActivityModule::class,
+        ViewModelModule::class
+    ]
+)
 abstract class AppModule {
 
     @Binds
