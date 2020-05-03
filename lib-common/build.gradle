@@ -49,6 +49,9 @@ dependencies {
     api "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
     api "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
 
+    // Moshi
+    api "com.squareup.moshi:moshi:$moshiVersion"
+
     // Timber
     api "com.jakewharton.timber:timber:$timberVersion"
 

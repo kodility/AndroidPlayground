@@ -1,4 +1,4 @@
-package com.androidplayground.libbase.injection.qualifires
+package com.androidplayground.libcommon.injection.qualifires
 
 import javax.inject.Qualifier
 
