@@ -50,4 +50,22 @@ interface KeyValueStore : Clearable {
 
     @CheckReturnValue
     fun remove(key: String): Completable
+
+    interface Factory {
+        fun create(name: Name, type: Type): KeyValueStore
+    }
+
+    enum class Type {
+        ROOM_DATABASE,
+        SHARED_PREFERENCE,
+        IN_MEMORY
+    }
+
+    enum class Name(name: String) {
+        APP_ROOM_DATABASE("app_key_value_database"),
+        USER_ROOM_DATABASE("user_key_value_database"),
+        APP_SHARED_PREFERENCE("app_shared_preference"),
+        USER_SHARED_PREFERENCE("user_shared_preference"),
+        IN_MEMORY("in_memory_cache")
+    }
 }

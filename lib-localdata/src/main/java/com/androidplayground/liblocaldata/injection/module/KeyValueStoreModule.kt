@@ -1,32 +1,23 @@
 package com.androidplayground.liblocaldata.injection.module
 
-import android.content.Context
-import com.androidplayground.libcommon.injection.qualifires.ApplicationContext
 import com.androidplayground.liblocaldata.injection.qualifiers.ApplicationCacheSet
 import com.androidplayground.liblocaldata.injection.qualifiers.UserCacheSet
-import com.androidplayground.liblocaldata.keyvaluestore.sharedpreference.SharedPreferenceStore
-import com.androidplayground.liblocaldata.keyvaluestore.sharedpreference.SharedPreferenceStoreImpl
+import com.androidplayground.liblocaldata.keyvaluestore.KeyValueStore
+import com.androidplayground.liblocaldata.keyvaluestore.KeyValueStoreFactory
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
-import javax.inject.Singleton
 
 /**
  * Created by Mostafa Monowar at 03-May-20 5:30 PM
  * monowar1993@gmail.com
  */
 @Module
-object KeyValueStoreModule {
-    @Provides
-    @Singleton
+abstract class KeyValueStoreModule {
+    @Binds
     @ApplicationCacheSet
-    fun provideSharedPreferenceStoreApplication(@ApplicationContext context: Context): SharedPreferenceStore {
-        return SharedPreferenceStoreImpl(context, "shared_preference_application")
-    }
+    abstract fun bindApplicationKeyValueStoreFactory(keyValueStoreFactory: KeyValueStoreFactory): KeyValueStore.Factory
 
-    @Provides
-    @Singleton
+    @Binds
     @UserCacheSet
-    fun provideSharedPreferenceStoreUser(@ApplicationContext context: Context): SharedPreferenceStore {
-        return SharedPreferenceStoreImpl(context, "shared_preference_user")
-    }
+    abstract fun bindUserKeyValueStoreFactory(keyValueStoreFactory: KeyValueStoreFactory): KeyValueStore.Factory
 }

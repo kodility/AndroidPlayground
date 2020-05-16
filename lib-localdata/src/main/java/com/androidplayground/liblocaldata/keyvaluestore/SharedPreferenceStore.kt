@@ -1,4 +1,4 @@
-package com.androidplayground.liblocaldata.keyvaluestore.sharedpreference
+package com.androidplayground.liblocaldata.keyvaluestore
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.core.Maybe
  * Created by Mostafa Monowar at 03-May-20 3:34 PM
  * monowar1993@gmail.com
  */
-class SharedPreferenceStoreImpl constructor(applicationContext: Context, name: String) : SharedPreferenceStore {
+class SharedPreferenceStore(applicationContext: Context, name: String) : KeyValueStore {
 
     private val sharedPreferences: SharedPreferences by lazy {
         applicationContext.getSharedPreferences(name, Context.MODE_PRIVATE)
