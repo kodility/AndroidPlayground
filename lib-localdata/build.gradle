@@ -45,4 +45,5 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
     testImplementation "junit:junit:$unitTestVersion"
+    testImplementation "com.github.IvanShafran:shared-preferences-mock:1.0"
 }
