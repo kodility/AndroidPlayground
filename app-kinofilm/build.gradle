@@ -93,16 +93,19 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation project(":lib-base")
+    implementation project(":lib-repository")
 
     // Dagger
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     // Firebase SDK
-    implementation "com.google.firebase:firebase-analytics:17.3.0"
-    implementation "com.google.firebase:firebase-crashlytics:17.0.0-beta03"
+    implementation 'com.google.firebase:firebase-analytics:17.4.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
 
-    testImplementation "junit:junit:4.13"
+    testImplementation "junit:junit:$unitTestVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.assertj:assertj-core:$assertJVersion"
     // optional - Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:2.1.0"
     testImplementation("org.threeten:threetenbp:$threetenbpVersion") {

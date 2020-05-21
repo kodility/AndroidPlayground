@@ -34,9 +34,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    // Kotlin
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-    api "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    api project(":lib-common")
 
     // Okhttp
     implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
@@ -48,24 +46,13 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
 
     // Moshi
-    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    api "com.squareup.moshi:moshi:$moshiVersion"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
 
     // Dagger
-    api "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
-    // Rx
-    api "io.reactivex.rxjava3:rxjava:$rxJavaVersion"
-    api "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
-
-    // DateTime Util
-    api "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
-
-    // Timber
-    api "com.jakewharton.timber:timber:$timberVersion"
-
-    testImplementation "junit:junit:4.13"
+    testImplementation "junit:junit:$unitTestVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
     testImplementation("org.threeten:threetenbp:$threetenbpVersion") {
         exclude module: "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"

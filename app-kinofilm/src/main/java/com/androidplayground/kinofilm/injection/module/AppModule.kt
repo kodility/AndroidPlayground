@@ -2,11 +2,16 @@ package com.androidplayground.kinofilm.injection.module
 
 import android.app.Application
 import android.content.Context
-import com.androidplayground.libbase.injection.qualifires.ApplicationContext
+import com.androidplayground.libcommon.injection.qualifires.ApplicationContext
 import dagger.Binds
 import dagger.Module
 
-@Module
+@Module(
+    includes = [
+        ActivityModule::class,
+        ViewModelModule::class
+    ]
+)
 abstract class AppModule {
 
     @Binds

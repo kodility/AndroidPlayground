@@ -2,9 +2,9 @@ package com.androidplayground.kinofilm.injection
 
 import android.app.Application
 import com.androidplayground.kinofilm.App
-import com.androidplayground.kinofilm.injection.module.ActivityModule
 import com.androidplayground.kinofilm.injection.module.AppModule
-import com.androidplayground.kinofilm.injection.module.ViewModelModule
+import com.androidplayground.libcommon.injection.CoreModule
+import com.androidplayground.librepository.injection.RepositoryModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -15,9 +15,9 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        AppModule::class,
-        ActivityModule::class,
-        ViewModelModule::class
+        CoreModule::class,
+        RepositoryModule::class,
+        AppModule::class
     ]
 )
 interface AppComponent : AndroidInjector<App> {

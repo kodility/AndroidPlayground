@@ -36,10 +36,9 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    api project(":lib-repository")
+    api project(":lib-common")
 
     api "androidx.appcompat:appcompat:1.1.0"
-    api "androidx.core:core-ktx:1.2.0"
     api "androidx.fragment:fragment-ktx:1.2.4"
     api "androidx.activity:activity-ktx:1.1.0"
     api "androidx.collection:collection-ktx:1.1.0"
@@ -64,25 +63,20 @@ dependencies {
     api "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"
 
     // Dagger
-    api "com.google.dagger:dagger-android:$daggerVersion"
     api "com.google.dagger:dagger-android-support:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     // Rx
-    api "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
     api "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
 
     // Layouts
-    api "com.google.android.material:material:1.2.0-alpha05"
+    api 'com.google.android.material:material:1.2.0-alpha06'
     api "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
 
     // Dimen
     api "com.intuit.sdp:sdp-android:$sDimenVersion"
     api "com.intuit.ssp:ssp-android:$sDimenVersion"
 
-    // Timber
-    api "com.jakewharton.timber:timber:$timberVersion"
-
-    testImplementation "junit:junit:4.13"
+    testImplementation "junit:junit:$unitTestVersion"
 }
