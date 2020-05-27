@@ -34,8 +34,8 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    api project(":lib-localdata")
-    api project(":lib-api")
+    api project(':core-local-data')
+    api project(':core-api')
 
     // Dagger
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"

@@ -1,7 +1,7 @@
 package com.androidplayground.librepository.injection
 
-import com.androidplayground.libapi.injection.ApiModule
-import com.androidplayground.liblocaldata.injection.module.LocalDataModule
+import com.androidplayground.coreapi.injection.ApiModule
+import com.androidplayground.corelocaldata.injection.module.LocalDataModule
 import dagger.Module
 
 /**

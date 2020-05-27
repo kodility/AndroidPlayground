@@ -3,9 +3,9 @@ package com.androidplayground.kinofilm.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.androidplayground.coreandroid.activity.MVVMDataBindingActivity
 import com.androidplayground.kinofilm.R
 import com.androidplayground.kinofilm.databinding.ActivityMainBinding
-import com.androidplayground.libbase.activity.MVVMDataBindingActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
