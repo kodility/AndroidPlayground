@@ -71,7 +71,7 @@ dependencies {
     api "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
 
     // Layouts
-    api "com.google.android.material:material:1.2.0-alpha06"
+    api "com.google.android.material:material:1.2.0-beta01"
     api "androidx.constraintlayout:constraintlayout:2.0.0-beta6"
 
     // Dimen
