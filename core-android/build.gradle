@@ -11,9 +11,11 @@ android {
         minSdkVersion minSdk
         targetSdkVersion targetSdk
 
-        dataBinding.enabled = true
-
         consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildFeatures{
+        dataBinding = true
     }
 
     buildTypes {
