@@ -61,7 +61,7 @@ interface KeyValueStore : Clearable {
         IN_MEMORY
     }
 
-    enum class Name(name: String) {
+    enum class Name(val storeName: String) {
         APP_ROOM_DATABASE("app_key_value_database"),
         USER_ROOM_DATABASE("user_key_value_database"),
         APP_SHARED_PREFERENCE("app_shared_preference"),

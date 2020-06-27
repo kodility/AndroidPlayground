@@ -15,7 +15,7 @@ class KeyValueStoreFactory @Inject constructor(
     @ApplicationContext private val applicationContext: Context
 ) : KeyValueStore.Factory {
     override fun create(name: KeyValueStore.Name, type: KeyValueStore.Type): KeyValueStore {
-        return if (type == SHARED_PREFERENCE) SharedPreferenceStore(applicationContext, name.name)
+        return if (type == SHARED_PREFERENCE) SharedPreferenceStore(applicationContext, name.storeName)
         else throw IllegalArgumentException("$type not supported yet.")
     }
 }
