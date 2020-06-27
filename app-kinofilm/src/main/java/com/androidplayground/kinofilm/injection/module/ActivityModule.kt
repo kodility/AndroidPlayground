@@ -1,7 +1,7 @@
 package com.androidplayground.kinofilm.injection.module
 
+import com.androidplayground.coreandroid.injection.scopes.ActivityScope
 import com.androidplayground.kinofilm.ui.MainActivity
-import com.androidplayground.libbase.injection.scopes.ActivityScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

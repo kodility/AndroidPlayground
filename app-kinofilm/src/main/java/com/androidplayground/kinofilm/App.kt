@@ -1,7 +1,7 @@
 package com.androidplayground.kinofilm
 
+import com.androidplayground.coreandroid.application.BaseApplication
 import com.androidplayground.kinofilm.injection.DaggerAppComponent
-import com.androidplayground.libbase.application.BaseApplication
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.android.AndroidInjector
 import dagger.android.HasAndroidInjector

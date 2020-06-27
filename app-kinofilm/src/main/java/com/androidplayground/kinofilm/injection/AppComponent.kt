@@ -1,9 +1,9 @@
 package com.androidplayground.kinofilm.injection
 
 import android.app.Application
+import com.androidplayground.core.injection.CoreModule
 import com.androidplayground.kinofilm.App
 import com.androidplayground.kinofilm.injection.module.AppModule
-import com.androidplayground.libcommon.injection.CoreModule
 import com.androidplayground.librepository.injection.RepositoryModule
 import dagger.BindsInstance
 import dagger.Component

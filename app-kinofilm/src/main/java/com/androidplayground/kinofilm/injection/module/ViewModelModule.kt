@@ -2,9 +2,9 @@ package com.androidplayground.kinofilm.injection.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.androidplayground.coreandroid.injection.ViewModelKey
+import com.androidplayground.coreandroid.viewmodel.ViewModelFactory
 import com.androidplayground.kinofilm.ui.MainViewModel
-import com.androidplayground.libbase.injection.ViewModelKey
-import com.androidplayground.libbase.viewmodel.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

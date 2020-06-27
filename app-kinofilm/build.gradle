@@ -25,12 +25,14 @@ android {
         versionCode generateVersionCode()
         versionName generateVersionName()
 
-        //viewBinding.enabled = true
-        dataBinding.enabled = true
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         setProperty("archivesBaseName", "${appName}-${versionName}")
+    }
+
+    buildFeatures{
+        dataBinding = true
+        // viewBinding = true
     }
 
     signingConfigs {
@@ -92,7 +94,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    implementation project(":lib-base")
+    implementation project(':core-android')
     implementation project(":lib-repository")
 
     // Dagger
@@ -100,8 +102,8 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     // Firebase SDK
-    implementation 'com.google.firebase:firebase-analytics:17.4.0'
-    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.4.3'
+    implementation 'com.google.firebase:firebase-crashlytics:17.1.0'
 
     testImplementation "junit:junit:$unitTestVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
