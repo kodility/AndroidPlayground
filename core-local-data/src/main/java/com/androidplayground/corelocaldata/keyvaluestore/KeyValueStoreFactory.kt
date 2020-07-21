@@ -1,8 +1,8 @@
 package com.androidplayground.corelocaldata.keyvaluestore
 
 import android.content.Context
-import com.androidplayground.core.injection.qualifires.ApplicationContext
 import com.androidplayground.corelocaldata.keyvaluestore.KeyValueStore.Type.SHARED_PREFERENCE
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 

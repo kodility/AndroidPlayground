@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.annotation.AnimRes
 import androidx.fragment.app.Fragment
 import com.androidplayground.coreandroid.R
-import dagger.android.support.AndroidSupportInjection
 import kotlin.reflect.KClass
 
 abstract class BaseFragment : Fragment() {
@@ -13,7 +12,6 @@ abstract class BaseFragment : Fragment() {
     lateinit var baseCommunicator: BaseFragmentCommunicator
 
     override fun onAttach(context: Context) {
-        AndroidSupportInjection.inject(getFragment())
         super.onAttach(context)
         if (context is BaseFragmentCommunicator) {
             baseCommunicator = context

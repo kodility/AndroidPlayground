@@ -36,8 +36,8 @@ dependencies {
 
     api project(':core')
 
-    // Dagger
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    // Hilt
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
     testImplementation "junit:junit:$unitTestVersion"
     testImplementation "com.github.IvanShafran:shared-preferences-mock:1.0"

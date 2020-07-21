@@ -4,6 +4,8 @@ import com.androidplayground.coreapi.ApiFactory
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
 /**
@@ -11,6 +13,7 @@ import javax.inject.Singleton
  * monowar1993@gmail.com
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 object ApiModule {
     @Provides
     @Singleton

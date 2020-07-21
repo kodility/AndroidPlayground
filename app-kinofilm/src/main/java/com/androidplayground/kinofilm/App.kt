@@ -1,20 +1,20 @@
 package com.androidplayground.kinofilm
 
 import com.androidplayground.coreandroid.application.BaseApplication
-import com.androidplayground.kinofilm.injection.DaggerAppComponent
 import com.jakewharton.threetenabp.AndroidThreeTen
-import dagger.android.AndroidInjector
-import dagger.android.HasAndroidInjector
-import dagger.android.support.DaggerApplication
+import dagger.hilt.android.HiltAndroidApp
+import timber.log.Timber
+import timber.log.Timber.DebugTree
 
-class App : BaseApplication(), HasAndroidInjector {
-
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.factory().create(this)
-    }
+@HiltAndroidApp
+class App : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(DebugTree())
+        }
 
         AndroidThreeTen.init(this)
     }

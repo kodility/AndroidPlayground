@@ -64,10 +64,9 @@ dependencies {
     // optional - ReactiveStreams support for LiveData
     api "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"
 
-    // Dagger
-    api "com.google.dagger:dagger-android-support:$daggerVersion"
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    // Hilt
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+    api "androidx.hilt:hilt-lifecycle-viewmodel:$hiltJetpackVersion"
 
     // Rx
     api "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"

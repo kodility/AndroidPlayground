@@ -37,8 +37,8 @@ dependencies {
     api project(':core-local-data')
     api project(':core-api')
 
-    // Dagger
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    // Hilt
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
     testImplementation "junit:junit:$unitTestVersion"
     testImplementation("org.threeten:threetenbp:${threetenbpVersion}") {

@@ -49,8 +49,8 @@ dependencies {
     api "com.squareup.moshi:moshi:$moshiVersion"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
 
-    // Dagger
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    // Hilt
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
     testImplementation "junit:junit:$unitTestVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttpVersion"

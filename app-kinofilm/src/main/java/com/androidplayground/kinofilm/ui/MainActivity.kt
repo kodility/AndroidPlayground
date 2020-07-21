@@ -3,13 +3,18 @@ package com.androidplayground.kinofilm.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import com.androidplayground.coreandroid.activity.MVVMDataBindingActivity
+import androidx.activity.viewModels
+import com.androidplayground.coreandroid.activity.DataBindingActivity
 import com.androidplayground.kinofilm.R
 import com.androidplayground.kinofilm.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : MVVMDataBindingActivity<MainViewModel, ActivityMainBinding>() {
+@AndroidEntryPoint
+class MainActivity : DataBindingActivity<ActivityMainBinding>() {
+
+    private val viewModel: MainViewModel by viewModels()
 
     override val layoutResourceId = R.layout.activity_main
 
@@ -35,9 +40,6 @@ class MainActivity : MVVMDataBindingActivity<MainViewModel, ActivityMainBinding>
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
