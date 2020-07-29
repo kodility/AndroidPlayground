@@ -12,14 +12,19 @@ import androidx.lifecycle.Observer
 import com.androidplayground.coreandroid.fragment.BaseFragmentCommunicator
 import com.androidplayground.coreandroid.utils.ConnectionLiveData
 import com.androidplayground.coreandroid.utils.toast
-import kotlin.reflect.KClass
 import timber.log.Timber
+import kotlin.reflect.KClass
 
 abstract class BaseActivity : AppCompatActivity(), BaseFragmentCommunicator {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ConnectionLiveData(getContext()).observe(getActivity(), Observer { Timber.d("Network Connected: $it") })
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     fun getContext(): Context = this
