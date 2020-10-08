@@ -104,8 +104,10 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:$hiltJetpackVersion"
 
     // Firebase SDK
-    implementation 'com.google.firebase:firebase-analytics:17.4.4'
-    implementation 'com.google.firebase:firebase-crashlytics:17.1.1'
+    // Import the BoM for the Firebase platform
+    implementation platform("com.google.firebase:firebase-bom:$firebaseBoMVersion")
+    implementation "com.google.firebase:firebase-analytics-ktx"
+    implementation "com.google.firebase:firebase-crashlytics-ktx"
 
     testImplementation "junit:junit:$unitTestVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
@@ -116,8 +118,8 @@ dependencies {
         exclude module: "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
     }
 
-    androidTestImplementation "androidx.test.ext:junit:1.1.1"
-    androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
 
 private Integer generateVersionCode() {

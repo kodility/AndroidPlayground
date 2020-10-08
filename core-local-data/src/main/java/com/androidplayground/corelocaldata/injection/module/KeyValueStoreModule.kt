@@ -7,14 +7,14 @@ import com.androidplayground.corelocaldata.keyvaluestore.KeyValueStoreFactory
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 
 /**
  * Created by Mostafa Monowar at 03-May-20 5:30 PM
  * monowar1993@gmail.com
  */
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class KeyValueStoreModule {
     @Binds
     @ApplicationCacheSet
