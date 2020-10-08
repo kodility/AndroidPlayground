@@ -4,7 +4,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Created by Mostafa Monowar at 25-Apr-20 2:08 AM
@@ -12,7 +11,6 @@ import javax.inject.Singleton
  *
  * Provides different types of [Scheduler]s specific to Android framework.
  */
-@Singleton
 class AndroidSchedulerProvider @Inject constructor() : SchedulerProvider {
     override fun trampoline(): Scheduler {
         return Schedulers.trampoline()

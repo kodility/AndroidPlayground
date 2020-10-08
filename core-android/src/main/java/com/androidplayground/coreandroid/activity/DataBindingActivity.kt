@@ -4,9 +4,8 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
 
-abstract class MVVMDataBindingActivity<VM : ViewModel, DataBinding : ViewDataBinding> : MVVMActivity<VM>() {
+abstract class DataBindingActivity<DataBinding : ViewDataBinding> : BaseActivity() {
 
     lateinit var dataBinding: DataBinding
 

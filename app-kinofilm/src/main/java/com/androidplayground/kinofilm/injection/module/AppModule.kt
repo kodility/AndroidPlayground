@@ -1,20 +1,9 @@
 package com.androidplayground.kinofilm.injection.module
 
-import android.app.Application
-import android.content.Context
-import com.androidplayground.core.injection.qualifires.ApplicationContext
-import dagger.Binds
 import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 
-@Module(
-    includes = [
-        ActivityModule::class,
-        ViewModelModule::class
-    ]
-)
-abstract class AppModule {
-
-    @Binds
-    @ApplicationContext
-    abstract fun bindApplicationContext(application: Application): Context
-}
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class AppModule
