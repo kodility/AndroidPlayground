@@ -43,11 +43,10 @@ class SharedPreferenceStore(applicationContext: Context, name: String) : KeyValu
     override fun getBoolean(key: String): Maybe<Boolean> {
         return Maybe.create { emitter ->
             try {
-                val value = sharedPreferences.getBoolean(key, false)
-                if (!value) {
-                    emitter.onError(NullPointerException("No value is stored using key $key"))
+                if (sharedPreferences.contains(key)) {
+                    emitter.onSuccess(sharedPreferences.getBoolean(key, false))
                 } else {
-                    emitter.onSuccess(value)
+                    emitter.onError(NoSuchElementException("No value is stored using key $key"))
                 }
             } catch (e: ClassCastException) {
                 emitter.onError(e)
@@ -58,11 +57,10 @@ class SharedPreferenceStore(applicationContext: Context, name: String) : KeyValu
     override fun getInt(key: String): Maybe<Int> {
         return Maybe.create { emitter ->
             try {
-                val value = sharedPreferences.getInt(key, Int.MIN_VALUE)
-                if (value == Int.MIN_VALUE) {
-                    emitter.onError(NullPointerException("No value is stored using key $key"))
+                if (sharedPreferences.contains(key)) {
+                    emitter.onSuccess(sharedPreferences.getInt(key, Int.MIN_VALUE))
                 } else {
-                    emitter.onSuccess(value)
+                    emitter.onError(NoSuchElementException("No value is stored using key $key"))
                 }
             } catch (e: ClassCastException) {
                 emitter.onError(e)
@@ -73,11 +71,10 @@ class SharedPreferenceStore(applicationContext: Context, name: String) : KeyValu
     override fun getLong(key: String): Maybe<Long> {
         return Maybe.create { emitter ->
             try {
-                val value = sharedPreferences.getLong(key, Long.MIN_VALUE)
-                if (value == Long.MIN_VALUE) {
-                    emitter.onError(NullPointerException("No value is stored using key $key"))
+                if (sharedPreferences.contains(key)) {
+                    emitter.onSuccess(sharedPreferences.getLong(key, Long.MIN_VALUE))
                 } else {
-                    emitter.onSuccess(value)
+                    emitter.onError(NoSuchElementException("No value is stored using key $key"))
                 }
             } catch (e: ClassCastException) {
                 emitter.onError(e)
@@ -88,11 +85,10 @@ class SharedPreferenceStore(applicationContext: Context, name: String) : KeyValu
     override fun getFloat(key: String): Maybe<Float> {
         return Maybe.create { emitter ->
             try {
-                val value = sharedPreferences.getFloat(key, Float.MIN_VALUE)
-                if (value == Float.MIN_VALUE) {
-                    emitter.onError(NullPointerException("No value is stored using key $key"))
+                if (sharedPreferences.contains(key)) {
+                    emitter.onSuccess(sharedPreferences.getFloat(key, Float.MIN_VALUE))
                 } else {
-                    emitter.onSuccess(value)
+                    emitter.onError(NoSuchElementException("No value is stored using key $key"))
                 }
             } catch (e: ClassCastException) {
                 emitter.onError(e)
@@ -110,7 +106,7 @@ class SharedPreferenceStore(applicationContext: Context, name: String) : KeyValu
                 sharedPreferences.getString(key, null)?.let {
                     emitter.onSuccess(it)
                 } ?: run {
-                    emitter.onError(NullPointerException("No value is stored using key $key"))
+                    emitter.onError(NoSuchElementException("No value is stored using key $key"))
                 }
             } catch (e: ClassCastException) {
                 emitter.onError(e)

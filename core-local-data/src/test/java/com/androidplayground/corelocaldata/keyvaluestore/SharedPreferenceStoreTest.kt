@@ -68,7 +68,7 @@ class SharedPreferenceStoreTest {
 
         sharedPreferenceStore.getString("1")
             .test()
-            .assertError(NullPointerException::class.java)
+            .assertError(NoSuchElementException::class.java)
 
         sharedPreferenceStore.getString("2")
             .test()
@@ -83,11 +83,11 @@ class SharedPreferenceStoreTest {
 
         sharedPreferenceStore.getString("1")
             .test()
-            .assertError(NullPointerException::class.java)
+            .assertError(NoSuchElementException::class.java)
 
         sharedPreferenceStore.getString("2")
             .test()
-            .assertError(NullPointerException::class.java)
+            .assertError(NoSuchElementException::class.java)
     }
 
     @After
