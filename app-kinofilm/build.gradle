@@ -14,7 +14,7 @@ ext.versionClassifier = "SNAPSHOT"
 ext.versionClassifierCodes = ["SNAPSHOT": 0, "APLHA": 1, "BETA": 2, "RC1": 3, "RC2": 4, "RELEASE": 5].withDefault { 5 }
 
 android {
-    compileSdkVersion compileSdk
+    compileSdkVersion rootProject.ext.compileSdk
     buildToolsVersion buildtoolsVersion
 
     defaultConfig {
