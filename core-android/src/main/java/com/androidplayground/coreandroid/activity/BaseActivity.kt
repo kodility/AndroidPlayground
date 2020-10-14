@@ -2,25 +2,16 @@ package com.androidplayground.coreandroid.activity
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.annotation.AnimRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.androidplayground.coreandroid.fragment.BaseFragmentCommunicator
-import com.androidplayground.coreandroid.utils.ConnectionLiveData
 import com.androidplayground.coreandroid.utils.toast
 import kotlin.reflect.KClass
-import timber.log.Timber
 
 abstract class BaseActivity : AppCompatActivity(), BaseFragmentCommunicator {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        ConnectionLiveData(getContext()).observe(getActivity(), Observer { Timber.d("Network Connected: $it") })
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

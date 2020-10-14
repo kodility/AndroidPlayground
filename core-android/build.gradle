@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
@@ -80,5 +80,5 @@ dependencies {
     api "com.intuit.sdp:sdp-android:$sDimenVersion"
     api "com.intuit.ssp:ssp-android:$sDimenVersion"
 
-    testImplementation "junit:junit:$unitTestVersion"
+    testImplementation "junit:junit:$junitVersion"
 }

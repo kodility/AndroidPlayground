@@ -22,10 +22,10 @@
         <item name="android:textColorSecondary">@color/selector_secondary_text</item>
         <item name="android:textColor">@color/selector_primary_text</item>
         <item name="android:textColorHint">@color/colorHintText</item>
-        <item name="android:windowContentTransitions">true</item>
         <item name="materialButtonStyle">@style/AppButton</item>
         <item name="textAppearanceButton">@style/AppTextAppearance.Button</item>
         <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

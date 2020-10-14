@@ -61,7 +61,7 @@ dependencies {
     // DateTime Util
     api "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
 
-    testImplementation "junit:junit:$unitTestVersion"
+    testImplementation "junit:junit:$junitVersion"
     testImplementation("org.threeten:threetenbp:$threetenbpVersion") {
         exclude module: "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
     }

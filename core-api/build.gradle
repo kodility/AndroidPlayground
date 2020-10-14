@@ -16,7 +16,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
@@ -52,7 +52,7 @@ dependencies {
     // Hilt
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
-    testImplementation "junit:junit:$unitTestVersion"
+    testImplementation "junit:junit:$junitVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
     testImplementation("org.threeten:threetenbp:$threetenbpVersion") {
         exclude module: "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"

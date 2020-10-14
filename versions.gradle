@@ -29,8 +29,11 @@ ext {
 
     timberVersion = "4.7.1"
 
-    unitTestVersion = "4.13"
+    junitVersion = '4.13.1'
     mockitoVersion = "3.3.3"
     assertJVersion = '3.17.2'
+
+    androidxJunitVersion = "1.1.2"
+    espressoVersion = "3.3.0"
 }
 

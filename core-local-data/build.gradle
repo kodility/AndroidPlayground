@@ -16,7 +16,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -39,6 +39,6 @@ dependencies {
     // Hilt
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
-    testImplementation "junit:junit:$unitTestVersion"
+    testImplementation "junit:junit:$junitVersion"
     testImplementation "com.github.IvanShafran:shared-preferences-mock:1.0"
 }

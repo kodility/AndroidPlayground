@@ -59,7 +59,8 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources = true
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
 
             signingConfig signingConfigs.release
@@ -95,7 +96,8 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    implementation project(':core-android')
+    implementation project(":core-android")
+    implementation project(":feature-app-start")
     implementation project(":lib-repository")
 
     // Hilt
@@ -109,7 +111,7 @@ dependencies {
     implementation "com.google.firebase:firebase-analytics-ktx"
     implementation "com.google.firebase:firebase-crashlytics-ktx"
 
-    testImplementation "junit:junit:$unitTestVersion"
+    testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation "org.assertj:assertj-core:$assertJVersion"
     // optional - Test helpers for LiveData
@@ -118,8 +120,8 @@ dependencies {
         exclude module: "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
     }
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 }
 
 private Integer generateVersionCode() {
