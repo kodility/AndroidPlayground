@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-java@v2.0.0
         with:
           java-version: 1.8
+          distribution: jre
 
       # Step 2: Decode Google services configuration file
       - name: Decode google-services.json
