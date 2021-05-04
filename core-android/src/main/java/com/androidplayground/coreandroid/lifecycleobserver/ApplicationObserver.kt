@@ -1,20 +1,20 @@
 package com.androidplayground.coreandroid.lifecycleobserver
 
-import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import timber.log.Timber
 
 class ApplicationObserver : LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onForeground() {
-        Log.d(TAG, "App in foreground")
+        Timber.tag(TAG).d("App in foreground")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun onBackground() {
-        Log.d(TAG, "App in background")
+        Timber.tag(TAG).d("App in background")
     }
 
     companion object {

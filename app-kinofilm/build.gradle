@@ -1,7 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
-apply plugin: "kotlin-android-extensions"
 apply plugin: "kotlin-kapt"
+apply plugin: "kotlin-parcelize"
 apply plugin: "dagger.hilt.android.plugin"
 apply plugin: "com.google.gms.google-services"
 apply plugin: "com.google.firebase.crashlytics"
@@ -14,14 +14,14 @@ ext.versionClassifier = "SNAPSHOT"
 ext.versionClassifierCodes = ["SNAPSHOT": 0, "APLHA": 1, "BETA": 2, "RC1": 3, "RC2": 4, "RELEASE": 5].withDefault { 5 }
 
 android {
-    compileSdkVersion compileSdk
+    compileSdkVersion appCompileSdk
     buildToolsVersion buildtoolsVersion
 
     defaultConfig {
         applicationId "com.androidplayground.kinofilm"
 
-        minSdkVersion minSdk
-        targetSdkVersion targetSdk
+        minSdkVersion appMinSdk
+        targetSdkVersion appTargetSdk
 
         versionCode generateVersionCode()
         versionName generateVersionName()
@@ -95,13 +95,13 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    implementation project(':core-android')
+    implementation project(":core-android")
     implementation project(":lib-repository")
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
-    kapt "androidx.hilt:hilt-compiler:$hiltJetpackVersion"
+    kapt "androidx.hilt:hilt-compiler:$hiltCompilerVersion"
 
     // Firebase SDK
     // Import the BoM for the Firebase platform
@@ -118,8 +118,8 @@ dependencies {
         exclude module: "com.jakewharton.threetenabp:threetenabp:$threetenabpVersion"
     }
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation "androidx.test.ext:junit:1.1.2"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"
 }
 
 private Integer generateVersionCode() {

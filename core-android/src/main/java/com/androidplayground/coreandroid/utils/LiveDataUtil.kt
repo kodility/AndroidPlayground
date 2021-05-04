@@ -1,7 +1,6 @@
 package com.androidplayground.coreandroid.utils
 
 import androidx.annotation.MainThread
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Observer
@@ -11,6 +10,9 @@ fun <T, R> LiveData<T>.switchMap(func: (T) -> LiveData<R>?): LiveData<R> = Trans
 
 fun <X, Y> LiveData<X>.map(func: (X) -> Y): LiveData<Y> = Transformations.map(this, func)
 
+@MainThread
+fun <T> LiveData<T>.distinctUntilChanged() = Transformations.distinctUntilChanged(this)
+
 private val notSet = Any()
 private val never = object : LiveData<Any>() {}
 
@@ -18,9 +20,6 @@ private val never = object : LiveData<Any>() {}
 private fun <T> never(): LiveData<T> {
     return never as LiveData<T>
 }
-
-@Suppress("UNCHECKED_CAST")
-fun <X> LiveData<X>.observe(owner: LifecycleOwner, observer: (X) -> Unit) = observe(owner, Observer { observer(it as X) })
 
 @Suppress("UNCHECKED_CAST")
 fun <T, R> combineLatest(sources: Array<out LiveData<out T>>, combiner: (Array<T>) -> R): LiveData<R> {
@@ -89,23 +88,6 @@ fun <T> LiveData<T?>.filterNotNull(): LiveData<T> {
 }
 
 @MainThread
-fun <T, K> LiveData<T>.distinctUntilChanged(func: (T) -> K): LiveData<T> {
-    var prev: Any? = notSet
-    return filter {
-        val key = func(it)
-        if (key !== prev) {
-            prev = key
-            true
-        } else {
-            false
-        }
-    }
-}
-
-@MainThread
-fun <T> LiveData<T>.distinctUntilChanged() = distinctUntilChanged { it }
-
-@MainThread
 fun <T> LiveData<T>.first(): LiveData<T> {
     return take(1)
 }
@@ -131,7 +113,7 @@ fun <T> LiveData<T>.takeUntil(predicate: (T) -> Boolean): LiveData<T> {
 @MainThread
 fun <T, S : T> LiveData<S>.startWith(value: T): LiveData<T> {
     val result = MediatorLiveData<T>()
-    result.value = value
+    result.value = requireNotNull(value)
     result.addSource(this) { result.value = it }
     return result
 }

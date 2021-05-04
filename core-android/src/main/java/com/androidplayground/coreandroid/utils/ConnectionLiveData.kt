@@ -34,21 +34,10 @@ class ConnectionLiveData(private val context: Context) : LiveData<Boolean>() {
             }
         }
 
-    /*private val networkReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            updateConnection()
-        }
-    }*/
-
     override fun onActive() {
         super.onActive()
         updateConnection()
         when {
-            /*Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ->
-                connectivityManager.registerDefaultNetworkCallback(networkCallback)
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> lollipopNetworkAvailableRequest()
-            else -> context.registerReceiver(networkReceiver, IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"))
-            //android.net.ConnectivityManager.CONNECTIVITY_ACTION*/
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> connectivityManager.registerDefaultNetworkCallback(networkCallback)
             else -> lollipopNetworkAvailableRequest()
         }
@@ -56,11 +45,6 @@ class ConnectionLiveData(private val context: Context) : LiveData<Boolean>() {
 
     override fun onInactive() {
         super.onInactive()
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            connectivityManager.unregisterNetworkCallback(networkCallback)
-        } else {
-            context.unregisterReceiver(networkReceiver)
-        }*/
         connectivityManager.unregisterNetworkCallback(networkCallback)
     }
 

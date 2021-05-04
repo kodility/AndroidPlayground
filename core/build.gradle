@@ -1,16 +1,15 @@
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
-apply plugin: "kotlin-android-extensions"
 apply plugin: "kotlin-kapt"
 apply plugin: "dagger.hilt.android.plugin"
 
 android {
-    compileSdkVersion compileSdk
+    compileSdkVersion appCompileSdk
     buildToolsVersion buildtoolsVersion
 
     defaultConfig {
-        minSdkVersion minSdk
-        targetSdkVersion targetSdk
+        minSdkVersion appMinSdk
+        targetSdkVersion appTargetSdk
 
         consumerProguardFiles "consumer-rules.pro"
     }

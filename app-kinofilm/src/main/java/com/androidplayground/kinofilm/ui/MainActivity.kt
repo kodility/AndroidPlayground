@@ -9,7 +9,6 @@ import com.androidplayground.kinofilm.R
 import com.androidplayground.kinofilm.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : DataBindingActivity<ActivityMainBinding>() {
@@ -25,9 +24,9 @@ class MainActivity : DataBindingActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(dataBinding.toolbar)
 
-        fab.setOnClickListener { view ->
+        dataBinding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
