@@ -12,8 +12,8 @@ import androidx.lifecycle.Observer
 import com.androidplayground.coreandroid.fragment.BaseFragmentCommunicator
 import com.androidplayground.coreandroid.utils.ConnectionLiveData
 import com.androidplayground.coreandroid.utils.toast
-import kotlin.reflect.KClass
 import timber.log.Timber
+import kotlin.reflect.KClass
 
 abstract class BaseActivity : AppCompatActivity(), BaseFragmentCommunicator {
 
