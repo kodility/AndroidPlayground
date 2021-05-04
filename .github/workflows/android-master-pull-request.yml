@@ -8,6 +8,11 @@ jobs:
   check:
     name: Run test and lint check
     runs-on: ubuntu-latest
+    
+    env:
+      GOOGLE_SERVICE_JSON: ${{ secrets.GOOGLE_SERVICE_JSON }}
+      KEYSTORE_PROPERTIES_FILE: "${{ secrets.KEYSTORE_PROPERTIES_FILE }}"
+      KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
 
     steps:
       # Step 1: Clone repo and setup JDK
@@ -22,20 +27,14 @@ jobs:
           
       # Step 2: Decode Google services configuration file
       - name: Decode google-services.json
-        env:
-          GOOGLE_SERVICE_JSON: ${{ secrets.GOOGLE_SERVICE_JSON }}
         run: echo $GOOGLE_SERVICE_JSON > app-kinofilm/google-services.json
 
       # Step 3: Decode keystore.properties and keystore.jks file
       - name: Decode keystore.properties
-        env:
-          KEYSTORE_PROPERTIES_FILE: "${{ secrets.KEYSTORE_PROPERTIES_FILE }}"
         run: |
           mkdir ./keystore
           echo $KEYSTORE_PROPERTIES_FILE | base64 --decode > ./keystore/keystore.properties
       - name: Decode keystore.jks
-        env:
-          KEYSTORE_FILE: "${{ secrets.KEYSTORE_FILE }}"
         run: echo $KEYSTORE_FILE | base64 --decode > ./keystore/keystore.jks
 
       # Step 4: Run lint, ktlint, detekt and test
