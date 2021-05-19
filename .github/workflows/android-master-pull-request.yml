@@ -24,6 +24,14 @@ jobs:
           distribution: 'adopt'
           java-version: '8'
           check-latest: false
+
+      # Step 2: Decode Google services configuration file
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+        
+      # Step 2: Decode Google services configuration file
+      - name: Stop gradle deamon
+        run: ./gradlew --stop
           
       # Step 2: Decode Google services configuration file
       - name: Decode google-services.json
@@ -39,4 +47,14 @@ jobs:
 
       # Step 4: Run lint, ktlint, detekt and test
       - name: Run Checks
-        run: bash ./gradlew check --stacktrace
+        run: ./gradlew check --stacktrace
+      
+      - name: Assemble Debug
+        run: ./gradlew assembleDebug --full-stacktrace
+
+      - name: Upload Kino Film App
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-kinofilm.apk
+          path: app-kinofilm/build/outputs/apk/debug/*.apk
+          retention-days: 7
